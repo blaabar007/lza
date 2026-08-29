@@ -77,6 +77,7 @@
       transition: color .2s;
     }
     .nav-links a:hover { color: var(--white); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
     .nav-cta {
       font-size: .74rem; font-weight: 600; letter-spacing: .12em;
       text-transform: uppercase; color: var(--elec); text-decoration: none;
@@ -84,6 +85,82 @@
       border-radius: 100px; transition: all .25s;
     }
     .nav-cta:hover { background: rgba(0,186,255,.07); border-color: var(--elec); }
+
+    /* ── LANGUAGE SWITCHER ─────────────────────── */
+    .nav-lang { position: relative; }
+    .nl-btn {
+      display: flex; align-items: center; gap: .42rem;
+      background: none; border: 1px solid rgba(0,186,255,.16);
+      border-radius: 100px; padding: .42rem .95rem;
+      color: var(--muted); cursor: pointer;
+      font-size: .73rem; font-weight: 500; letter-spacing: .08em;
+      transition: all .22s; font-family: var(--ff-b);
+    }
+    .nl-btn:hover, .nl-btn.open {
+      color: var(--white); border-color: rgba(0,186,255,.45);
+    }
+    .nl-globe { font-size: .82rem; line-height: 1; }
+    .nl-arr { display: flex; align-items: center; transition: transform .22s; }
+    .nl-btn.open .nl-arr { transform: rotate(180deg); }
+    .nl-drop {
+      position: absolute; top: calc(100% + .6rem); right: 0;
+      background: rgba(9,7,22,.97); border: 1px solid rgba(0,186,255,.14);
+      border-radius: 14px; overflow: hidden; min-width: 148px;
+      backdrop-filter: blur(28px); z-index: 2000;
+      opacity: 0; transform: translateY(-8px) scale(.96);
+      pointer-events: none; transition: opacity .2s, transform .2s;
+    }
+    .nl-drop.open { opacity: 1; transform: none; pointer-events: all; }
+    .nl-opt {
+      display: flex; align-items: center; gap: .58rem;
+      width: 100%; padding: .7rem 1.1rem;
+      background: none; border: none; color: var(--grey);
+      font-size: .78rem; cursor: pointer; text-align: left;
+      font-family: var(--ff-b); transition: background .15s, color .15s;
+    }
+    .nl-opt:hover { background: rgba(0,186,255,.07); color: var(--white); }
+    .nl-opt.active { color: var(--elec); }
+    .nl-opt + .nl-opt { border-top: 1px solid rgba(255,255,255,.04); }
+
+    /* ── LANGUAGE TOAST ────────────────────────── */
+    .lang-toast {
+      position: fixed; bottom: 2rem; left: 50%; z-index: 7000;
+      transform: translateX(-50%) translateY(160%);
+      transition: transform .52s cubic-bezier(.16,1,.3,1), opacity .52s;
+      opacity: 0; pointer-events: none;
+    }
+    .lang-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1; pointer-events: all;
+    }
+    .lt-inner {
+      display: flex; align-items: center; gap: 1rem;
+      background: rgba(9,7,22,.97); border: 1px solid rgba(0,186,255,.22);
+      border-radius: 20px; padding: 1rem 1.5rem;
+      backdrop-filter: blur(36px); white-space: nowrap;
+      box-shadow: 0 24px 64px rgba(0,0,0,.78), 0 0 50px rgba(0,186,255,.06);
+    }
+    .lt-icon { font-size: 1.15rem; }
+    .lt-msg { font-size: .84rem; color: var(--grey); }
+    .lt-msg strong { color: var(--white); }
+    .lt-btns { display: flex; gap: .5rem; }
+    .lt-yes {
+      font-size: .7rem; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; padding: .48rem 1.15rem;
+      border-radius: 100px; border: none; cursor: pointer;
+      background: linear-gradient(90deg, var(--elec), var(--purp-b));
+      color: #04020E; transition: transform .2s, box-shadow .2s;
+      font-family: var(--ff-b);
+    }
+    .lt-yes:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,186,255,.4); }
+    .lt-no {
+      font-size: .7rem; font-weight: 500; letter-spacing: .08em;
+      text-transform: uppercase; padding: .48rem 1rem;
+      border-radius: 100px; cursor: pointer;
+      background: none; border: 1px solid rgba(255,255,255,.1);
+      color: var(--muted); transition: all .2s; font-family: var(--ff-b);
+    }
+    .lt-no:hover { color: var(--white); border-color: rgba(255,255,255,.25); }
 
     /* ── HERO ──────────────────────────────────── */
     .hero {
@@ -289,6 +366,13 @@
       .card:last-child { max-width: 100%; }
       .foot { flex-direction: column; text-align: center; padding: 1.8rem 1.5rem; }
       .ann { display: none; }
+      /* toast on mobile */
+      .lang-toast { width: calc(100% - 2rem); bottom: .8rem; }
+      .lt-inner { white-space: normal; flex-wrap: wrap; justify-content: center; gap: .7rem; padding: .9rem 1.1rem; }
+      .lt-msg { text-align: center; }
+      /* smaller lang btn on mobile */
+      .nl-btn { padding: .36rem .75rem; font-size: .68rem; }
+      #nlCurrent { display: none; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
@@ -301,42 +385,82 @@
 <div class="c-dot" id="cDot"></div>
 <div class="c-ring" id="cRing"></div>
 
+<!-- ═══════════════════════════════════════════════
+     LANGUAGE TOAST
+     Shown automatically when browser language
+     matches a supported locale (currently ES).
+     Dismissed: persisted to localStorage.
+═══════════════════════════════════════════════ -->
+<div class="lang-toast" id="langToast" role="dialog" aria-live="polite" aria-label="Language preference">
+  <div class="lt-inner">
+    <span class="lt-icon">🌐</span>
+    <p class="lt-msg" id="ltMsg">¿Prefieres ver esta página en <strong>Español</strong>?</p>
+    <div class="lt-btns">
+      <button class="lt-yes" id="ltYes">Sí, cambiar</button>
+      <button class="lt-no"  id="ltNo">No, gracias</button>
+    </div>
+  </div>
+</div>
+
 <!-- NAVIGATION -->
 <nav class="nav" id="nav">
-  <a href="#" class="nav-logo">LAZIA</a>
+  <a href="#" class="nav-logo" translate="no">LAZIA</a>
+
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#">Process</a></li>
     <li><a href="#">Case Studies</a></li>
     <li><a href="#">Contact</a></li>
   </ul>
-  <a href="#" class="nav-cta">Request Consultation</a>
+
+  <!-- right group: language switcher + CTA -->
+  <div class="nav-right">
+
+    <!-- ── Language Switcher Dropdown ── -->
+    <div class="nav-lang" id="navLang">
+      <button class="nl-btn" id="nlBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+        <span class="nl-globe">⊕</span>
+        <span id="nlCurrent">EN</span>
+        <span class="nl-arr">
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </button>
+      <div class="nl-drop" id="nlDrop" role="listbox">
+        <button class="nl-opt active" data-lang="en" role="option" aria-selected="true">🇺🇸 English</button>
+        <button class="nl-opt"        data-lang="es" role="option" aria-selected="false">🇪🇸 Español</button>
+      </div>
+    </div>
+
+    <a href="#" class="nav-cta">Request Consultation</a>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <canvas id="heroCanvas"></canvas>
 
-  <!-- floating code annotations -->
-  <div class="ann a-b" style="top:21%;left:5%;animation:flt 5s ease-in-out infinite">
+  <!-- floating code annotations (decorative, not translated) -->
+  <div class="ann a-b" style="top:21%;left:5%;animation:flt 5s ease-in-out infinite" translate="no">
     // Optimizing performance...<br>const render = () =&gt; {
   </div>
-  <div class="ann a-g" style="top:29%;right:5.5%;animation:flt 6s 1.5s ease-in-out infinite">
+  <div class="ann a-g" style="top:29%;right:5.5%;animation:flt 6s 1.5s ease-in-out infinite" translate="no">
     /* Stunning UI */<br>@keyframes mastery {
   </div>
-  <div class="ann a-p" style="bottom:31%;left:4.5%;animation:flt 4.5s .8s ease-in-out infinite">
+  <div class="ann a-p" style="bottom:31%;left:4.5%;animation:flt 4.5s .8s ease-in-out infinite" translate="no">
     render() → 60fps<br>class LAZIA {
   </div>
-  <div class="ann a-b" style="bottom:22%;right:5%;animation:flt 5.5s 2s ease-in-out infinite">
+  <div class="ann a-b" style="bottom:22%;right:5%;animation:flt 5.5s 2s ease-in-out infinite" translate="no">
     &#x2211; f(creativity)<br>return artistry;
   </div>
-  <div class="ann a-g" style="top:57%;left:8%;animation:flt 7s .35s ease-in-out infinite">
+  <div class="ann a-g" style="top:57%;left:8%;animation:flt 7s .35s ease-in-out infinite" translate="no">
     O(n log n) → O(1)
   </div>
 
   <div class="hero-inner" id="heroInner">
     <div class="hero-badge">// Creative Software Agency &mdash; Est. 2024</div>
-    <h1 class="hero-mark">LAZIA.</h1>
+    <h1 class="hero-mark" translate="no">LAZIA.</h1>
     <p class="hero-headline">UNLEASHING DIGITAL CRAFTSMANSHIP.</p>
     <p class="hero-sub">Award-Winning Software Solutions. Code that Inspires.</p>
     <div class="hero-ctas">
@@ -368,7 +492,7 @@
         <p class="card-num">01 &mdash; Enterprise</p>
         <h3 class="card-ttl">SaaS ERP &amp;<br>Software</h3>
         <p class="card-dsc">Architectured systems that scale with your ambition. Full-stack SaaS platforms and custom ERP solutions built to redefine entire industries.</p>
-        <p class="card-ann">// class Enterprise extends Scalable {<br>// &nbsp;&nbsp;build() { return perfection; }<br>// }</p>
+        <p class="card-ann" translate="no">// class Enterprise extends Scalable {<br>// &nbsp;&nbsp;build() { return perfection; }<br>// }</p>
         <a href="#" class="card-lnk">Explore Service &#x2192;</a>
       </div>
     </div>
@@ -380,7 +504,7 @@
         <p class="card-num">02 &mdash; Commerce</p>
         <h3 class="card-ttl">E-Commerce<br>Web Pages</h3>
         <p class="card-dsc">Visually immersive storefronts engineered to convert. Brand storytelling fused with precision UX that drives measurable, meaningful revenue.</p>
-        <p class="card-ann">/* conversion_rate += 340% */<br>/* avg_session_value = &#x2191; */</p>
+        <p class="card-ann" translate="no">/* conversion_rate += 340% */<br>/* avg_session_value = &#x2191; */</p>
         <a href="#" class="card-lnk">Explore Service &#x2192;</a>
       </div>
     </div>
@@ -392,7 +516,7 @@
         <p class="card-num">03 &mdash; Intelligence</p>
         <h3 class="card-ttl">Automations &amp;<br>Chatbots</h3>
         <p class="card-dsc">Intelligent workflows and conversational AI that operate around the clock. Transform repetitive operations into elegant automated pipelines.</p>
-        <p class="card-ann">&#x2192; if (task.isRepetitive) automate(it);<br>&#x2192; deploy(AI.withPurpose);</p>
+        <p class="card-ann" translate="no">&#x2192; if (task.isRepetitive) automate(it);<br>&#x2192; deploy(AI.withPurpose);</p>
         <a href="#" class="card-lnk">Explore Service &#x2192;</a>
       </div>
     </div>
@@ -402,8 +526,8 @@
 
 <!-- FOOTER -->
 <footer class="foot">
-  <div class="foot-logo">LAZIA</div>
-  <p class="foot-txt">&#169; 2024 LAZIA Creative Software Agency &mdash; All rights reserved</p>
+  <div class="foot-logo" translate="no">LAZIA</div>
+  <p class="foot-txt" id="footCopy">&#169; 2024 LAZIA Creative Software Agency &mdash; All rights reserved</p>
   <p class="foot-txt">hello@lazia.studio</p>
 </footer>
 
@@ -412,6 +536,232 @@
 ===================================================== -->
 <script>
 'use strict';
+
+/* ══════════════════════════════════════════════════════
+   INTERNACIONALIZACIÓN (i18n)
+   ─────────────────────────────────────────────────────
+   • Idiomas soportados: EN  /  ES
+   • Detección automática del navegador → toast
+   • Selector manual en la barra de navegación
+   • Preferencia guardada en localStorage
+   • Para otros idiomas, el atributo lang="en/es" en
+     <html> permite la traducción nativa del navegador
+     (Chrome, Edge, Firefox, Safari, etc.)
+══════════════════════════════════════════════════════ */
+(function initI18n() {
+
+  /* ── Translation dictionary ── */
+  const DICT = {
+    en: {
+      doc_title:    'LAZIA \u2014 Unleashing Digital Craftsmanship',
+      nav_s1:       'Services',
+      nav_s2:       'Process',
+      nav_s3:       'Case Studies',
+      nav_s4:       'Contact',
+      nav_cta:      'Request Consultation',
+      hero_badge:   '// Creative Software Agency \u2014 Est.\u00a02024',
+      hero_hl:      'UNLEASHING DIGITAL CRAFTSMANSHIP.',
+      hero_sub:     'Award-Winning Software Solutions. Code that Inspires.',
+      hero_cta:     'Request Consultation',
+      scroll_lbl:   'Scroll',
+      sec_eye:      '// What we craft',
+      sec_ttl:      'Code that creates <em>value.</em>',
+      c1_num:       '01 \u2014 Enterprise',
+      c1_ttl:       'SaaS ERP &amp;<br>Software',
+      c1_dsc:       'Architectured systems that scale with your ambition. Full-stack SaaS platforms and custom ERP solutions built to redefine entire industries.',
+      c1_lnk:       'Explore Service \u2192',
+      c2_num:       '02 \u2014 Commerce',
+      c2_ttl:       'E-Commerce<br>Web Pages',
+      c2_dsc:       'Visually immersive storefronts engineered to convert. Brand storytelling fused with precision UX that drives measurable, meaningful revenue.',
+      c2_lnk:       'Explore Service \u2192',
+      c3_num:       '03 \u2014 Intelligence',
+      c3_ttl:       'Automations &amp;<br>Chatbots',
+      c3_dsc:       'Intelligent workflows and conversational AI that operate around the clock. Transform repetitive operations into elegant automated pipelines.',
+      c3_lnk:       'Explore Service \u2192',
+      foot_copy:    '\u00a9 2024 LAZIA Creative Software Agency \u2014 All rights reserved',
+      toast_q:      'Would you like to view this page in <strong>English</strong>?',
+      toast_yes:    'Yes, switch',
+      toast_no:     'No, thanks',
+    },
+    es: {
+      doc_title:    'LAZIA \u2014 Arte Digital Sin L\u00edmites',
+      nav_s1:       'Servicios',
+      nav_s2:       'Proceso',
+      nav_s3:       'Casos de \u00c9xito',
+      nav_s4:       'Contacto',
+      nav_cta:      'Solicitar Consulta',
+      hero_badge:   '// Agencia de Software Creativo \u2014 Est.\u00a02024',
+      hero_hl:      'ARTE DIGITAL SIN L\u00cdMITES.',
+      hero_sub:     'Soluciones de Software Premiadas. C\u00f3digo que Inspira.',
+      hero_cta:     'Solicitar Consulta',
+      scroll_lbl:   'Bajar',
+      sec_eye:      '// Lo que creamos',
+      sec_ttl:      'C\u00f3digo que crea <em>valor.</em>',
+      c1_num:       '01 \u2014 Empresa',
+      c1_ttl:       'ERP SaaS &amp;<br>Software',
+      c1_dsc:       'Sistemas arquitecturados que escalan con tu ambici\u00f3n. Plataformas SaaS full-stack y soluciones ERP personalizadas para redefinir industrias enteras.',
+      c1_lnk:       'Explorar Servicio \u2192',
+      c2_num:       '02 \u2014 Comercio',
+      c2_ttl:       'E-Commerce<br>P\u00e1ginas Web',
+      c2_dsc:       'Tiendas visualmente inmersivas dise\u00f1adas para convertir. Narrativa de marca fusionada con UX preciso que impulsa ingresos reales y significativos.',
+      c2_lnk:       'Explorar Servicio \u2192',
+      c3_num:       '03 \u2014 Inteligencia',
+      c3_ttl:       'Automatizaciones<br>&amp; Chatbots',
+      c3_dsc:       'Flujos de trabajo inteligentes e IA conversacional que operan 24/7. Transforma operaciones repetitivas en pipelines automatizados y elegantes.',
+      c3_lnk:       'Explorar Servicio \u2192',
+      foot_copy:    '\u00a9 2024 LAZIA Agencia de Software Creativo \u2014 Todos los derechos reservados',
+      toast_q:      '\u00bfPrefieres ver esta p\u00e1gina en <strong>Espa\u00f1ol</strong>?',
+      toast_yes:    'S\u00ed, cambiar',
+      toast_no:     'No, gracias',
+    }
+  };
+
+  /*
+   * Element map: [CSS selector, dict key, useInnerHTML]
+   * innerHTML=true → allows <em>, <br>, &amp; in translation strings
+   */
+  const MAP = [
+    ['.nav-links li:nth-child(1) a', 'nav_s1',    false],
+    ['.nav-links li:nth-child(2) a', 'nav_s2',    false],
+    ['.nav-links li:nth-child(3) a', 'nav_s3',    false],
+    ['.nav-links li:nth-child(4) a', 'nav_s4',    false],
+    ['.nav-cta',                     'nav_cta',   false],
+    ['.hero-badge',                  'hero_badge',false],
+    ['.hero-headline',               'hero_hl',   false],
+    ['.hero-sub',                    'hero_sub',  false],
+    ['.btn-p span:first-child',      'hero_cta',  false],
+    ['.nudge span',                  'scroll_lbl',false],
+    ['.sec-eye',                     'sec_eye',   false],
+    ['.sec-ttl',                     'sec_ttl',   true ],
+    ['.c1 .card-num',                'c1_num',    false],
+    ['.c1 .card-ttl',                'c1_ttl',    true ],
+    ['.c1 .card-dsc',                'c1_dsc',    false],
+    ['.c1 .card-lnk',                'c1_lnk',    false],
+    ['.c2 .card-num',                'c2_num',    false],
+    ['.c2 .card-ttl',                'c2_ttl',    true ],
+    ['.c2 .card-dsc',                'c2_dsc',    false],
+    ['.c2 .card-lnk',                'c2_lnk',    false],
+    ['.c3 .card-num',                'c3_num',    false],
+    ['.c3 .card-ttl',                'c3_ttl',    true ],
+    ['.c3 .card-dsc',                'c3_dsc',    false],
+    ['.c3 .card-lnk',                'c3_lnk',    false],
+    ['#footCopy',                    'foot_copy', false],
+  ];
+
+  /* ── Core apply function ── */
+  function applyLang(lang) {
+    if (!DICT[lang]) return;
+    const tx = DICT[lang];
+
+    // <html lang="..."> for native browser translation of other languages
+    document.documentElement.lang = lang;
+    document.title = tx.doc_title;
+
+    // Update all mapped elements
+    MAP.forEach(function([sel, key, html]) {
+      var el = document.querySelector(sel);
+      if (!el || !tx[key]) return;
+      if (html) el.innerHTML = tx[key];
+      else       el.textContent = tx[key];
+    });
+
+    // Sync dropdown UI
+    var cur = document.getElementById('nlCurrent');
+    if (cur) cur.textContent = lang.toUpperCase();
+    document.querySelectorAll('.nl-opt').forEach(function(o) {
+      var isActive = o.dataset.lang === lang;
+      o.classList.toggle('active', isActive);
+      o.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    // Persist preference
+    try { localStorage.setItem('lazia_lang', lang); } catch(e) {}
+  }
+
+  /* ── Dropdown toggle ── */
+  var nlBtn  = document.getElementById('nlBtn');
+  var nlDrop = document.getElementById('nlDrop');
+
+  nlBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var open = nlDrop.classList.toggle('open');
+    nlBtn.classList.toggle('open', open);
+    nlBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // Close on outside click
+  document.addEventListener('click', function() {
+    nlDrop.classList.remove('open');
+    nlBtn.classList.remove('open');
+    nlBtn.setAttribute('aria-expanded', 'false');
+  });
+
+  // Language option click
+  document.querySelectorAll('.nl-opt').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      applyLang(opt.dataset.lang);
+      nlDrop.classList.remove('open');
+      nlBtn.classList.remove('open');
+      hideToast();
+    });
+  });
+
+  /* ── Toast ── */
+  var toast      = document.getElementById('langToast');
+  var ltMsg      = document.getElementById('ltMsg');
+  var ltYes      = document.getElementById('ltYes');
+  var ltNo       = document.getElementById('ltNo');
+  var toastTimer = null;
+
+  function showToast(targetLang) {
+    var tx = DICT[targetLang];
+    if (!tx) return;
+    ltMsg.innerHTML     = tx.toast_q;
+    ltYes.textContent   = tx.toast_yes;
+    ltNo.textContent    = tx.toast_no;
+    ltYes.onclick = function() { applyLang(targetLang); hideToast(); };
+    ltNo.onclick  = function() {
+      try { localStorage.setItem('lazia_toast_dismissed', '1'); } catch(e) {}
+      hideToast();
+    };
+    toastTimer = setTimeout(function() { toast.classList.add('show'); }, 900);
+  }
+
+  function hideToast() {
+    if (toastTimer) { clearTimeout(toastTimer); toastTimer = null; }
+    toast.classList.remove('show');
+  }
+
+  /* ── Initialise on page load ── */
+  (function init() {
+    var SUPPORTED = ['en', 'es'];
+    var saved, dismissed;
+    try {
+      saved     = localStorage.getItem('lazia_lang');
+      dismissed = localStorage.getItem('lazia_toast_dismissed');
+    } catch(e) {}
+
+    if (saved && DICT[saved]) {
+      // User previously chose a language → apply silently
+      applyLang(saved);
+      return;
+    }
+
+    // Detect browser language (primary, e.g. "es-MX" → "es")
+    var browserLang = ((navigator.language || navigator.languages && navigator.languages[0]) || 'en')
+                       .toLowerCase().split('-')[0];
+    var target = SUPPORTED.indexOf(browserLang) !== -1 ? browserLang : null;
+
+    if (target && target !== 'en' && !dismissed) {
+      // Non-English supported language detected → ask the user
+      showToast(target);
+    }
+    // For unsupported languages the <html lang="en"> attribute already
+    // triggers the browser's built-in translation offer automatically.
+  })();
+
+})(); /* end initI18n */
+
 
 /* ── CURSOR ──────────────────────────────────────────── */
 const cDot  = document.getElementById('cDot');
@@ -480,7 +830,6 @@ document.addEventListener('mousemove', e => {
     'rgba(0,186,255,.5)','rgba(255,209,102,.45)','rgba(176,110,255,.5)',
   ];
 
-  /* Constellation particle */
   class Pt {
     constructor(spread) { this.born(spread); }
     born(sp) {
@@ -502,11 +851,9 @@ document.addEventListener('mousemove', e => {
     tick() {
       this.ph += this.ps;
       this.a   = this.ba * (.55 + .45 * Math.sin(this.ph));
-      // sinusoidal river attractor
       const rY = H * .5 + Math.sin(this.x * .004 + Date.now() * .00025) * H * .18;
       this.y += (rY - this.y) * .00055;
       this.x += this.vx; this.y += this.vy;
-      // mouse repulsion
       if (mouse.x !== null) {
         const dx = this.x - mouse.x, dy = this.y - mouse.y;
         const d  = Math.hypot(dx, dy);
@@ -533,7 +880,6 @@ document.addEventListener('mousemove', e => {
     }
   }
 
-  /* River particle (flows along cubic bezier) */
   class RiverPt {
     constructor(i, total) {
       this.t = i / total;
@@ -548,7 +894,6 @@ document.addEventListener('mousemove', e => {
     }
     pos() {
       const t = this.t, mt = 1 - t;
-      // cubic bezier control points (proportional)
       const p0x = -100,    p0y = H * .62;
       const p1x = W * .28, p1y = H * .28;
       const p2x = W * .65, p2y = H * .72;
@@ -577,7 +922,7 @@ document.addEventListener('mousemove', e => {
       for (let j = i + 1; j < pts.length; j++) {
         const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
         const d2 = dx * dx + dy * dy;
-        if (d2 < 8836) { // 94px threshold
+        if (d2 < 8836) {
           ctx.globalAlpha = (1 - Math.sqrt(d2) / 94) * .11;
           ctx.strokeStyle = '#00BAFF';
           ctx.beginPath();
@@ -591,7 +936,6 @@ document.addEventListener('mousemove', e => {
   }
 
   function drawRiverGlow() {
-    // Glowing tube along the bezier river path
     const g = ctx.createLinearGradient(0, 0, W, 0);
     g.addColorStop(0,   'rgba(0,186,255,0)');
     g.addColorStop(.3,  'rgba(0,186,255,.055)');
@@ -604,12 +948,10 @@ document.addEventListener('mousemove', e => {
   }
 
   function frame() {
-    // Background layers
     ctx.fillStyle = '#060610'; ctx.fillRect(0, 0, W, H);
     const rg = ctx.createRadialGradient(W * .5, H * .5, 0, W * .5, H * .5, H * .95);
     rg.addColorStop(0, 'rgba(17,8,42,.72)'); rg.addColorStop(1, 'rgba(6,6,16,0)');
     ctx.fillStyle = rg; ctx.fillRect(0, 0, W, H);
-
     drawRiverGlow();
     drawConns();
     pts.forEach(p => { p.tick(); p.draw(); });
@@ -622,7 +964,6 @@ document.addEventListener('mousemove', e => {
 
 /* ═══════════════════════════════════════════════════════
    SAAS CANVAS — Rotating Icosahedron Wireframe
-   3D architectural form built from streaming code
 ═══════════════════════════════════════════════════════ */
 (function SaasCanvas() {
   const cv  = document.getElementById('cvSaas');
@@ -633,7 +974,6 @@ document.addEventListener('mousemove', e => {
   cv.closest('.card').addEventListener('mouseenter', () => hov = true);
   cv.closest('.card').addEventListener('mouseleave', () => hov = false);
 
-  // Icosahedron vertices (normalised to unit sphere)
   const phi = (1 + Math.sqrt(5)) / 2;
   const verts = [
     [0,1,phi],[0,-1,phi],[0,1,-phi],[0,-1,-phi],
@@ -647,7 +987,6 @@ document.addEventListener('mousemove', e => {
     [4,5],[4,8],[4,10],[5,9],[5,11],[6,7],[6,8],[6,10],[7,9],[7,11],[8,10],[9,11]
   ];
 
-  // Streaming code particles on edges
   const streams = Array.from({ length: 50 }, () => ({
     ei:   Math.floor(Math.random() * edges.length),
     t:    Math.random(),
@@ -657,18 +996,14 @@ document.addEventListener('mousemove', e => {
     gold: Math.random() > .62
   }));
 
-  // Inner smaller icosahedron for depth
   const innerVerts = verts.map(v => v.map(c => c * .48));
-  const innerEdges = edges.slice(0, 15); // subset for elegance
+  const innerEdges = edges.slice(0, 15);
 
   function project(x, y, z) {
-    // Rotate X
     const cy = Math.cos(rotX), sy = Math.sin(rotX);
     const y1 = y * cy - z * sy, z1 = y * sy + z * cy;
-    // Rotate Y
     const cR = Math.cos(rotY), sR = Math.sin(rotY);
     const x2 = x * cR + z1 * sR, z2 = -x * sR + z1 * cR;
-    // Perspective project
     const sc = Math.min(W, H) * .29, fov = 3.5;
     const d  = fov / (fov + z2 + 2.8);
     return { x: W * .5 + x2 * sc * d, y: H * .5 + y1 * sc * d, d };
@@ -678,19 +1013,12 @@ document.addEventListener('mousemove', e => {
     if (!W || !H) { requestAnimationFrame(drawFrame); return; }
     const speed = hov ? 1.75 : 1;
     rotX += .005 * speed; rotY += .009 * speed;
-
     ctx.clearRect(0, 0, W, H);
-
-    // Radial glow background
     const g = ctx.createRadialGradient(W * .5, H * .5, 0, W * .5, H * .5, H * .78);
     g.addColorStop(0, 'rgba(0,80,160,.09)'); g.addColorStop(1, 'transparent');
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-
-    // Projected vertices
     const prj      = verts.map(([x,y,z]) => project(x, y, z));
     const innerPrj = innerVerts.map(([x,y,z]) => project(x, y, z));
-
-    // Outer icosahedron edges
     edges.forEach(([a, b]) => {
       const pa = prj[a], pb = prj[b];
       const da = (pa.d + pb.d) * .5;
@@ -698,16 +1026,12 @@ document.addEventListener('mousemove', e => {
       ctx.strokeStyle = `rgba(0,186,255,${da * .65})`; ctx.lineWidth = da * 1.1;
       ctx.globalAlpha = 1; ctx.stroke();
     });
-
-    // Inner wireframe (dimmer, smaller)
     innerEdges.forEach(([a, b]) => {
       const pa = innerPrj[a], pb = innerPrj[b];
       ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pb.x, pb.y);
       ctx.strokeStyle = 'rgba(176,110,255,.3)'; ctx.lineWidth = .7;
       ctx.globalAlpha = 1; ctx.stroke();
     });
-
-    // Code stream particles travelling along edges
     streams.forEach(s => {
       s.t += s.spd;
       if (s.t >= 1) { s.t = 0; s.ei = Math.floor(Math.random() * edges.length); }
@@ -720,14 +1044,11 @@ document.addEventListener('mousemove', e => {
       ctx.beginPath(); ctx.arc(px, py, s.r, 0, Math.PI * 2);
       ctx.fillStyle = s.gold ? '#FFD166' : '#00BAFF'; ctx.fill(); ctx.restore();
     });
-
-    // Glowing vertices
     prj.forEach(p => {
       ctx.save(); ctx.shadowBlur = 14; ctx.shadowColor = '#FFD166';
       ctx.beginPath(); ctx.arc(p.x, p.y, 2.2 * p.d + .3, 0, Math.PI * 2);
       ctx.fillStyle = '#FFD166'; ctx.globalAlpha = p.d * .9; ctx.fill(); ctx.restore();
     });
-
     requestAnimationFrame(drawFrame);
   }
   drawFrame();
@@ -736,7 +1057,6 @@ document.addEventListener('mousemove', e => {
 
 /* ═══════════════════════════════════════════════════════
    ECOM CANVAS — Assembling Marketplace Symbols
-   Digital commerce elements forming from price + product streams
 ═══════════════════════════════════════════════════════ */
 (function EcomCanvas() {
   const cv  = document.getElementById('cvEcom');
@@ -785,7 +1105,6 @@ document.addEventListener('mousemove', e => {
     }
   }
 
-  // Floating price-tag items at varied positions
   class PriceTag {
     constructor() { this.reset(); }
     reset() {
@@ -807,7 +1126,6 @@ document.addEventListener('mousemove', e => {
       ctx.save(); ctx.globalAlpha = this.a;
       ctx.font = `bold 11px 'Space Mono', monospace`;
       ctx.fillStyle = '#FFD166'; ctx.textAlign = 'center';
-      // tag box
       const tw = ctx.measureText(this.val).width + 14;
       ctx.strokeStyle = 'rgba(255,209,102,.3)'; ctx.lineWidth = 1;
       ctx.strokeRect(this.x - tw/2, this.y - 12, tw, 16);
@@ -823,21 +1141,14 @@ document.addEventListener('mousemove', e => {
     if (!W || !H) { requestAnimationFrame(drawFrame); return; }
     t += .009 * (hov ? 1.5 : 1);
     ctx.clearRect(0, 0, W, H);
-
-    // Gold radial glow bg
     const g = ctx.createRadialGradient(W * .5, H * .42, 0, W * .5, H * .42, H);
     g.addColorStop(0, 'rgba(100,60,0,.08)'); g.addColorStop(1, 'transparent');
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-
-    // Subtle gold grid
     ctx.strokeStyle = 'rgba(255,209,102,.04)'; ctx.lineWidth = 1;
     for (let gx = 0; gx < W; gx += 30) { ctx.beginPath(); ctx.moveTo(gx,0); ctx.lineTo(gx,H); ctx.stroke(); }
     for (let gy = 0; gy < H; gy += 30) { ctx.beginPath(); ctx.moveTo(0,gy); ctx.lineTo(W,gy); ctx.stroke(); }
-
     syms.forEach(s => { s.tick(); s.draw(); });
     tags.forEach(p => { p.tick(); p.draw(); });
-
-    // Bottom price ribbon
     ctx.font = `9px 'Space Mono',monospace`;
     ctx.textAlign = 'center';
     PRICES.forEach((p, i) => {
@@ -846,8 +1157,6 @@ document.addEventListener('mousemove', e => {
       ctx.fillText(p, (i + .5) * (W / PRICES.length), H * .95);
     });
     ctx.globalAlpha = 1;
-
-    // Recycle oldest symbol
     if (Date.now() - lastSpawn > 2100) {
       const old = syms.shift(); old.reset(false); syms.push(old);
       lastSpawn = Date.now();
@@ -860,7 +1169,6 @@ document.addEventListener('mousemove', e => {
 
 /* ═══════════════════════════════════════════════════════
    AUTO CANVAS — Flow Graph  +  Data Stream Packets
-   Automation pipeline: trigger → process → AI → deploy
 ═══════════════════════════════════════════════════════ */
 (function AutoCanvas() {
   const cv  = document.getElementById('cvAuto');
@@ -873,21 +1181,19 @@ document.addEventListener('mousemove', e => {
   cv.closest('.card').addEventListener('mouseenter', () => hov = true);
   cv.closest('.card').addEventListener('mouseleave', () => hov = false);
 
-  // Node definitions (proportional coordinates)
   const NDef = [
-    { px:.11, py:.22, label:'Trigger', col:'#A855F7' }, // 0
-    { px:.37, py:.17, label:'Process', col:'#8B2FC9' }, // 1
-    { px:.63, py:.28, label:'AI Core', col:'#C084FC' }, // 2
-    { px:.88, py:.22, label:'Output',  col:'#A855F7' }, // 3
-    { px:.2,  py:.70, label:'Filter',  col:'#7C3AED' }, // 4
-    { px:.5,  py:.76, label:'Chatbot', col:'#A855F7' }, // 5
-    { px:.78, py:.70, label:'Deploy',  col:'#8B2FC9' }, // 6
+    { px:.11, py:.22, label:'Trigger', col:'#A855F7' },
+    { px:.37, py:.17, label:'Process', col:'#8B2FC9' },
+    { px:.63, py:.28, label:'AI Core', col:'#C084FC' },
+    { px:.88, py:.22, label:'Output',  col:'#A855F7' },
+    { px:.2,  py:.70, label:'Filter',  col:'#7C3AED' },
+    { px:.5,  py:.76, label:'Chatbot', col:'#A855F7' },
+    { px:.78, py:.70, label:'Deploy',  col:'#8B2FC9' },
   ];
-  // Edges: [from, to, bezier-cp-y-offset]
   const EDef = [
-    [0,1,0],[1,2,0],[2,3,0],       // top pipeline
-    [0,4,-24],[4,5,20],[5,6,0],    // bottom pipeline
-    [1,5,28],[2,6,-20]             // cross connections
+    [0,1,0],[1,2,0],[2,3,0],
+    [0,4,-24],[4,5,20],[5,6,0],
+    [1,5,28],[2,6,-20]
   ];
 
   class Packet {
@@ -927,9 +1233,7 @@ document.addEventListener('mousemove', e => {
   }
 
   let pkts = [];
-
   function getNodes() { return NDef.map(n => ({ ...n, x: n.px * W, y: n.py * H })); }
-
   function init(ns) {
     pkts = [];
     EDef.forEach(([fi, ti, cpO]) => {
@@ -944,15 +1248,10 @@ document.addEventListener('mousemove', e => {
     t += .03;
     const ns = getNodes();
     if (!ready) { init(ns); ready = true; }
-
     ctx.clearRect(0, 0, W, H);
-
-    // Purple radial glow bg
     const g = ctx.createRadialGradient(W * .5, H * .5, 0, W * .5, H * .5, H);
     g.addColorStop(0, 'rgba(50,0,110,.09)'); g.addColorStop(1, 'transparent');
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-
-    // Draw pipe edges
     EDef.forEach(([fi, ti, cpO]) => {
       const f  = ns[fi], to = ns[ti];
       const cpx = (f.x + to.x) / 2;
@@ -962,11 +1261,7 @@ document.addEventListener('mousemove', e => {
       ctx.strokeStyle = 'rgba(139,47,201,.22)'; ctx.lineWidth = 1.5;
       ctx.globalAlpha = 1; ctx.stroke();
     });
-
-    // Data packets
     pkts.forEach(p => { p.tick(ns); p.draw(); });
-
-    // Draw nodes
     ns.forEach((n, i) => {
       const pulse = Math.sin(t + i * 1.15) * 3;
       const r     = 15 + pulse;
@@ -978,14 +1273,11 @@ document.addEventListener('mousemove', e => {
       ctx.fillStyle = ng; ctx.globalAlpha = .92; ctx.fill();
       ctx.strokeStyle = n.col; ctx.lineWidth = 1.5; ctx.globalAlpha = .82; ctx.stroke();
       ctx.restore();
-      // Node label
       ctx.font = '7px \'Space Mono\',monospace';
       ctx.fillStyle = '#C084FC'; ctx.globalAlpha = .65; ctx.textAlign = 'center';
       ctx.fillText(n.label, n.x, n.y + r + 12);
       ctx.globalAlpha = 1;
     });
-
-    // Label connectors with tiny data annotations
     if (Math.floor(t * 5) % 60 < 30) {
       const dIdx = Math.floor(t / 2) % EDef.length;
       const [fi, ti, cpO] = EDef[dIdx];
@@ -999,7 +1291,6 @@ document.addEventListener('mousemove', e => {
       ctx.fillText('{ data }', midX, midY);
       ctx.restore();
     }
-
     requestAnimationFrame(drawFrame);
   }
   drawFrame();
