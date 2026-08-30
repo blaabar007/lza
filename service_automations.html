@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automations & Chatbots — LAZIA</title>
+  <meta id="metaDesc" name="description" content="Business process automation and chatbots via Meta API for WhatsApp, Instagram, and Messenger — with or without AI. Intelligent automation by LAZIA.">
+  <meta id="metaKeys" name="keywords" content="chatbot WhatsApp Mexico, Meta API chatbot, Instagram chatbot, workflow automation, business automation, chatbot con IA, automatización de procesos, chatbot sin programación, LAZIA automatización">
+  <meta name="author" content="LAZIA Creative Software Agency">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#060610">
+  <link id="linkCanonical" rel="canonical" href="https://lazia.com.mx/services/automations-chatbots/">
+  <link rel="alternate" hreflang="en" href="https://lazia.com.mx/services/automations-chatbots/">
+  <link rel="alternate" hreflang="es" href="https://lazia.com.mx/es/servicios/automatizaciones-chatbots/">
+  <link rel="alternate" hreflang="x-default" href="https://lazia.com.mx/services/automations-chatbots/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LAZIA">
+  <meta id="ogTitle" property="og:title" content="Automations & Chatbots — LAZIA">
+  <meta id="ogDesc" property="og:description" content="Meta API chatbots for WhatsApp, Instagram and Messenger — with or without AI. Business process automation by LAZIA.">
+  <meta property="og:image" content="https://lazia.com.mx/og-image.jpg">
+  <meta id="ogLocale" property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Automations & Chatbots — LAZIA">
+  <meta name="twitter:image" content="https://lazia.com.mx/og-image.jpg">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Service","name":"Automations & AI Chatbots","provider":{"@type":"Organization","name":"LAZIA","url":"https://lazia.com.mx/"},"description":"Business process automation and chatbots via Meta API (WhatsApp, Instagram, Messenger) with or without AI.","url":"https://lazia.com.mx/services/automations-chatbots/","areaServed":"Worldwide","serviceType":"Business Automation & Chatbot Development"}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#060610;--bg2:#0C0C1E;--elec:#00BAFF;--elec-d:rgba(0,186,255,.32);--purp:#8B2FC9;--purp-b:#B06EFF;--purp-d:rgba(176,110,255,.32);--gold:#FFD166;--white:#F0F0FF;--grey:#AAAAC8;--muted:#70708A;--card-bg:rgba(11,9,24,.93);--card-bd:rgba(176,110,255,.1);--ff-d:'Syne',sans-serif;--ff-b:'Inter',sans-serif;--ff-c:'Space Mono',monospace}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}body{background:var(--bg);color:var(--white);font-family:var(--ff-b);overflow-x:hidden}
+    .c-dot{position:fixed;width:8px;height:8px;background:var(--purp-b);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen}
+    .c-ring{position:fixed;width:38px;height:38px;border:1px solid var(--purp-d);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:1.9rem 5rem;border-bottom:1px solid transparent;transition:background .45s,padding .35s,border-color .45s}
+    .nav.s{background:rgba(6,6,16,.9);backdrop-filter:blur(24px);padding:1.1rem 5rem;border-color:rgba(176,110,255,.07)}
+    .nav-logo{font-family:var(--ff-d);font-size:1.45rem;font-weight:800;letter-spacing:-.02em;text-decoration:none;background:linear-gradient(90deg,var(--elec),var(--purp-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-links{list-style:none;display:flex;gap:2.8rem}
+    .nav-links a{font-size:.77rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--white)}
+    .nav-right{display:flex;align-items:center;gap:1rem}
+    .nav-cta{font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--purp-b);text-decoration:none;border:1px solid rgba(176,110,255,.32);padding:.55rem 1.35rem;border-radius:100px;transition:all .25s}
+    .nav-cta:hover{background:rgba(176,110,255,.07);border-color:var(--purp-b)}
+    .nav-lang{position:relative}
+    .nl-btn{display:flex;align-items:center;gap:.42rem;background:none;border:1px solid rgba(176,110,255,.16);border-radius:100px;padding:.42rem .95rem;color:var(--muted);cursor:pointer;font-size:.73rem;font-weight:500;letter-spacing:.08em;transition:all .22s;font-family:var(--ff-b)}
+    .nl-btn:hover,.nl-btn.open{color:var(--white);border-color:rgba(176,110,255,.45)}
+    .nl-arr{display:flex;align-items:center;transition:transform .22s}.nl-btn.open .nl-arr{transform:rotate(180deg)}
+    .nl-drop{position:absolute;top:calc(100% + .6rem);right:0;background:rgba(9,7,22,.97);border:1px solid rgba(176,110,255,.14);border-radius:14px;overflow:hidden;min-width:148px;backdrop-filter:blur(28px);z-index:2000;opacity:0;transform:translateY(-8px) scale(.96);pointer-events:none;transition:opacity .2s,transform .2s}
+    .nl-drop.open{opacity:1;transform:none;pointer-events:all}
+    .nl-opt{display:flex;align-items:center;gap:.58rem;width:100%;padding:.7rem 1.1rem;background:none;border:none;color:var(--grey);font-size:.78rem;cursor:pointer;text-align:left;font-family:var(--ff-b);transition:background .15s,color .15s}
+    .nl-opt:hover{background:rgba(176,110,255,.07);color:var(--white)}.nl-opt.active{color:var(--purp-b)}.nl-opt+.nl-opt{border-top:1px solid rgba(255,255,255,.04)}
+    /* TOAST */
+    .lang-toast{position:fixed;bottom:2rem;left:50%;z-index:7000;transform:translateX(-50%) translateY(160%);transition:transform .52s cubic-bezier(.16,1,.3,1),opacity .52s;opacity:0;pointer-events:none}
+    .lang-toast.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:all}
+    .lt-inner{display:flex;align-items:center;gap:1rem;background:rgba(9,7,22,.97);border:1px solid rgba(176,110,255,.22);border-radius:20px;padding:1rem 1.5rem;backdrop-filter:blur(36px);white-space:nowrap;box-shadow:0 24px 64px rgba(0,0,0,.78)}
+    .lt-msg{font-size:.84rem;color:var(--grey)}.lt-msg strong{color:var(--white)}
+    .lt-btns{display:flex;gap:.5rem}
+    .lt-yes{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.48rem 1.15rem;border-radius:100px;border:none;cursor:pointer;background:linear-gradient(90deg,var(--purp-b),var(--elec));color:#04020E;transition:transform .2s,box-shadow .2s;font-family:var(--ff-b)}
+    .lt-yes:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(176,110,255,.4)}
+    .lt-no{font-size:.7rem;font-weight:500;padding:.48rem 1rem;border-radius:100px;cursor:pointer;background:none;border:1px solid rgba(255,255,255,.1);color:var(--muted);transition:all .2s;font-family:var(--ff-b)}
+    .lt-no:hover{color:var(--white);border-color:rgba(255,255,255,.25)}
+    /* HERO */
+    .svc-hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+    #heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+    .svc-hero::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 85% 70% at 50% 50%,transparent 30%,rgba(6,6,16,.88) 100%)}
+    .hero-content{position:relative;z-index:2;max-width:1380px;margin:0 auto;padding:0 5rem;width:100%}
+    .breadcrumb{display:flex;align-items:center;gap:.6rem;font-family:var(--ff-c);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
+    .breadcrumb a{color:var(--muted);text-decoration:none;transition:color .2s}.breadcrumb a:hover{color:var(--purp-b)}.breadcrumb span{color:var(--purp-b)}
+    .hero-badge{display:inline-flex;align-items:center;gap:.65rem;font-family:var(--ff-c);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--purp-b);border:1px solid rgba(176,110,255,.18);border-radius:100px;padding:.42rem 1.1rem;background:rgba(176,110,255,.04);backdrop-filter:blur(8px);margin-bottom:1.8rem;animation:up .8s .2s both}
+    .hero-badge::before{content:'';width:5px;height:5px;background:var(--purp-b);border-radius:50%;animation:blink 2s ease-in-out infinite}
+    .svc-h1{font-family:var(--ff-d);font-weight:800;font-size:clamp(52px,9vw,130px);line-height:.88;letter-spacing:-.04em;background:linear-gradient(130deg,var(--purp-b) 0%,var(--elec) 50%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:up 1s .35s both;margin-bottom:.3em}
+    .svc-sub{font-size:clamp(15px,1.8vw,20px);font-weight:300;color:var(--grey);max-width:580px;line-height:1.6;animation:up 1s .55s both;margin-bottom:2.6rem}
+    .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;animation:up 1s .75s both}
+    .btn-p{display:inline-flex;align-items:center;gap:.6rem;font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:.9rem 2.2rem;border-radius:100px;position:relative;overflow:hidden;color:#04020E;background:linear-gradient(90deg,var(--purp-b),var(--elec));transition:transform .3s,box-shadow .3s}
+    .btn-p::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--elec),var(--gold));opacity:0;transition:opacity .35s}
+    .btn-p:hover{transform:translateY(-3px);box-shadow:0 18px 55px rgba(176,110,255,.38)}.btn-p:hover::before{opacity:1}.btn-p>*{position:relative;z-index:1}
+    .btn-g{display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:.88rem 1.8rem;border-radius:100px;border:1px solid rgba(176,110,255,.28);color:var(--purp-b);transition:all .25s}
+    .btn-g:hover{background:rgba(176,110,255,.07);border-color:var(--purp-b)}
+    /* SECTIONS */
+    section{padding:7rem 5rem}.sec-inner{max-width:1380px;margin:0 auto}
+    .sec-eye{font-family:var(--ff-c);font-size:.67rem;letter-spacing:.32em;text-transform:uppercase;color:var(--purp-b);margin-bottom:1rem}
+    .sec-ttl{font-family:var(--ff-d);font-weight:700;font-size:clamp(28px,4vw,52px);letter-spacing:-.03em;line-height:1.05;margin-bottom:1.2rem}
+    .sec-ttl em{font-style:normal;background:linear-gradient(90deg,var(--purp-b),var(--elec));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .sec-desc{font-size:1rem;font-weight:300;line-height:1.75;color:var(--grey);max-width:640px;margin-bottom:3.5rem}
+    /* PROCESSES GRID */
+    .proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .proc-item{background:var(--card-bg);border:1px solid rgba(176,110,255,.1);border-radius:16px;padding:1.6rem 1.5rem;transition:transform .3s,border-color .3s,box-shadow .3s}
+    .proc-item:hover{transform:translateY(-5px);border-color:rgba(176,110,255,.3);box-shadow:0 16px 50px rgba(0,0,0,.5),0 0 35px rgba(176,110,255,.05)}
+    .pi-icon{font-size:1.6rem;margin-bottom:.85rem;display:block}
+    .pi-title{font-family:var(--ff-d);font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.4rem}
+    .pi-desc{font-size:.78rem;color:var(--grey);line-height:1.6}
+    /* META CHANNELS */
+    .meta-bg{background:linear-gradient(to bottom,var(--bg),rgba(20,5,40,.4) 50%,var(--bg));position:relative}
+    .meta-bg::before{content:'';position:absolute;top:0;left:8%;right:8%;height:1px;background:linear-gradient(to right,transparent,rgba(176,110,255,.28),transparent)}
+    .meta-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-bottom:4rem}
+    .meta-badge{display:inline-block;font-family:var(--ff-c);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--purp-b);border:1px solid rgba(176,110,255,.18);padding:.3rem .9rem;border-radius:100px;margin-bottom:1.2rem}
+    .channels-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+    .channel-card{background:rgba(176,110,255,.04);border:1px solid rgba(176,110,255,.12);border-radius:22px;padding:2.2rem;transition:transform .35s,border-color .35s,box-shadow .35s;position:relative;overflow:hidden}
+    .channel-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;opacity:0;transition:opacity .35s}
+    .channel-card.wa::before{background:linear-gradient(90deg,#25D366,#128C7E)}
+    .channel-card.ig::before{background:linear-gradient(90deg,#E1306C,#833AB4,#F77737)}
+    .channel-card.fb::before{background:linear-gradient(90deg,#1877F2,#42B0FF)}
+    .channel-card:hover{transform:translateY(-8px);border-color:rgba(176,110,255,.35);box-shadow:0 24px 70px rgba(0,0,0,.55)}.channel-card:hover::before{opacity:1}
+    .ch-icon{font-size:2.2rem;margin-bottom:1rem;display:block}
+    .ch-tag{font-family:var(--ff-c);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:.6rem}
+    .channel-card.wa .ch-tag{color:#25D366}.channel-card.ig .ch-tag{color:#E1306C}.channel-card.fb .ch-tag{color:#1877F2}
+    .ch-name{font-family:var(--ff-d);font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:.6rem}
+    .ch-desc{font-size:.83rem;color:var(--grey);line-height:1.68;margin-bottom:1.3rem}
+    .ch-features{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+    .ch-features li{font-size:.77rem;color:var(--grey);padding-left:1.1rem;position:relative;line-height:1.55}
+    .ch-features li::before{content:'→';position:absolute;left:0;color:var(--purp-b);font-size:.68rem}
+    /* AI COMPARISON */
+    .ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+    .ai-card{border-radius:22px;padding:2.5rem;position:relative;overflow:hidden}
+    .ai-card.no-ai{background:rgba(176,110,255,.04);border:1px solid rgba(176,110,255,.14)}
+    .ai-card.with-ai{background:linear-gradient(135deg,rgba(0,186,255,.06),rgba(176,110,255,.08));border:1px solid rgba(0,186,255,.18)}
+    .ai-card.with-ai::before{content:'RECOMMENDED';position:absolute;top:1.2rem;right:1.5rem;font-family:var(--ff-c);font-size:.52rem;letter-spacing:.25em;color:var(--elec);border:1px solid rgba(0,186,255,.3);padding:.25rem .7rem;border-radius:100px}
+    .ai-label{font-family:var(--ff-c);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;margin-bottom:1rem}
+    .no-ai .ai-label{color:var(--purp-b)}.with-ai .ai-label{color:var(--elec)}
+    .ai-title{font-family:var(--ff-d);font-size:1.35rem;font-weight:800;color:var(--white);margin-bottom:.5rem}
+    .ai-sub{font-size:.85rem;color:var(--grey);margin-bottom:1.5rem}
+    .ai-list{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+    .ai-list li{display:flex;align-items:flex-start;gap:.65rem;font-size:.82rem;color:var(--grey);line-height:1.55}
+    .ai-list li span.dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:.35rem}
+    .no-ai .ai-list li span.dot{background:var(--purp-b)}.with-ai .ai-list li span.dot{background:var(--elec)}
+    .ai-price{margin-top:1.8rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.06)}
+    .ai-price-label{font-family:var(--ff-c);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+    .no-ai .ai-price-value{font-family:var(--ff-d);font-size:1rem;font-weight:700;color:var(--purp-b)}
+    .with-ai .ai-price-value{font-family:var(--ff-d);font-size:1rem;font-weight:700;color:var(--elec)}
+    /* RELATED */
+    .related-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+    .rel-card{background:var(--card-bg);border:1px solid rgba(0,186,255,.1);border-radius:18px;padding:2rem;text-decoration:none;display:block;transition:transform .35s,border-color .35s,box-shadow .35s}
+    .rel-card:hover{transform:translateY(-6px)}
+    .rel-card.cyan:hover{border-color:rgba(0,186,255,.32);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(0,186,255,.06)}
+    .rel-card.gold:hover{border-color:rgba(255,209,102,.32);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(255,209,102,.06)}
+    .rel-num{font-family:var(--ff-c);font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;margin-bottom:.6rem}
+    .rel-card.cyan .rel-num{color:var(--elec)}.rel-card.gold .rel-num{color:var(--gold)}
+    .rel-title{font-family:var(--ff-d);font-weight:700;font-size:1.15rem;color:var(--white);margin-bottom:.55rem}
+    .rel-desc{font-size:.82rem;color:var(--grey);line-height:1.6;margin-bottom:1.2rem}
+    .rel-lnk{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.4rem;transition:gap .2s}
+    .rel-card.cyan .rel-lnk{color:var(--elec)}.rel-card.gold .rel-lnk{color:var(--gold)}
+    .rel-card:hover .rel-lnk{gap:.8rem}
+    /* CTA */
+    .cta-band{background:linear-gradient(135deg,rgba(176,110,255,.06),rgba(0,186,255,.05));border-top:1px solid rgba(176,110,255,.1);border-bottom:1px solid rgba(176,110,255,.1);text-align:center;padding:6rem 5rem}
+    .cta-ttl{font-family:var(--ff-d);font-size:clamp(28px,4.5vw,58px);font-weight:800;letter-spacing:-.03em;margin-bottom:1rem}
+    .cta-sub{font-size:1rem;color:var(--grey);margin-bottom:2.5rem}
+    /* FOOTER */
+    .foot{padding:2.3rem 5rem;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;gap:2rem}
+    .foot-logo{font-family:var(--ff-d);font-size:1.1rem;font-weight:800;background:linear-gradient(90deg,var(--elec),var(--purp-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
+    .foot-txt{font-family:var(--ff-c);font-size:.65rem;letter-spacing:.06em;color:var(--muted)}
+    .r{opacity:0;transform:translateY(28px);transition:opacity .85s ease,transform .85s ease}.r.in{opacity:1;transform:none}
+    .process-bg{background:linear-gradient(to bottom,var(--bg),var(--bg2) 50%,var(--bg));position:relative}
+    .process-bg::before{content:'';position:absolute;top:0;left:8%;right:8%;height:1px;background:linear-gradient(to right,transparent,rgba(176,110,255,.28),transparent)}
+    @keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+    @keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.82)}}
+    @media(max-width:1080px){.proc-grid{grid-template-columns:repeat(2,1fr)}.channels-grid{grid-template-columns:1fr 1fr}.meta-intro{grid-template-columns:1fr}}
+    @media(max-width:768px){.nav,.nav.s{padding:1.2rem 1.5rem}.nav-links{display:none}section{padding:5rem 1.5rem}.hero-content{padding:0 1.5rem}.proc-grid{grid-template-columns:1fr 1fr}.channels-grid{grid-template-columns:1fr}.ai-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr}.cta-band{padding:4rem 1.5rem}.foot{flex-direction:column;text-align:center;padding:1.8rem 1.5rem}.nl-btn{padding:.36rem .75rem;font-size:.68rem}#nlCurrent{display:none}.lang-toast{width:calc(100% - 2rem);bottom:.8rem}.lt-inner{white-space:normal;flex-wrap:wrap;justify-content:center;gap:.7rem;padding:.9rem 1.1rem}.lt-msg{text-align:center}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+<div class="c-dot" id="cDot" aria-hidden="true"></div>
+<div class="c-ring" id="cRing" aria-hidden="true"></div>
+<div class="lang-toast" id="langToast" role="dialog" aria-live="polite">
+  <div class="lt-inner"><span aria-hidden="true">🌐</span><p class="lt-msg" id="ltMsg">¿Prefieres ver esta página en <strong>Español</strong>?</p><div class="lt-btns"><button class="lt-yes" id="ltYes">Sí, cambiar</button><button class="lt-no" id="ltNo">No, gracias</button></div></div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <a href="/" class="nav-logo" translate="no">LAZIA</a>
+  <ul class="nav-links" role="list"><li><a href="/">Home</a></li><li><a href="/#services" class="active">Services</a></li><li><a href="#">Process</a></li><li><a href="#">Contact</a></li></ul>
+  <div class="nav-right">
+    <div class="nav-lang" id="navLang">
+      <button class="nl-btn" id="nlBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+        <span aria-hidden="true">⊕</span><span id="nlCurrent">EN</span>
+        <span class="nl-arr" aria-hidden="true"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="nl-drop" id="nlDrop" role="listbox">
+        <button class="nl-opt active" data-lang="en" role="option" aria-selected="true">🇺🇸 English</button>
+        <button class="nl-opt" data-lang="es" role="option" aria-selected="false">🇪🇸 Español</button>
+      </div>
+    </div>
+    <a href="/#services" class="nav-cta" id="navCta">← All Services</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="svc-hero" aria-label="Service hero">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">LAZIA</a><span>/</span>
+      <a href="/#services" id="bcServices">Services</a><span>/</span>
+      <span id="bcCurrent">Automations & Chatbots</span>
+    </nav>
+    <div class="hero-badge" id="heroBadge">03 — Intelligence</div>
+    <h1 class="svc-h1" id="heroH1">Automations<br>& Chatbots</h1>
+    <p class="svc-sub" id="heroSub">Eliminate repetitive work. Attend customers 24/7 without effort. Intelligent pipelines and Meta API chatbots that run while you sleep.</p>
+    <div class="hero-ctas">
+      <a href="mailto:hello@lazia.com.mx" class="btn-p"><span id="heroCtaText">Request Consultation</span><span aria-hidden="true">→</span></a>
+      <a href="#processes" class="btn-g" id="heroLearn">What We Automate ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- REPETITIVE PROCESSES -->
+<section id="processes" aria-labelledby="proc-heading">
+  <div class="sec-inner">
+    <div class="r" style="margin-bottom:4rem">
+      <p class="sec-eye" id="procEye">// What we automate</p>
+      <h2 class="sec-ttl" id="procTitle">The most common<br>repetitive processes<br>we <em>eliminate.</em></h2>
+      <p class="sec-desc" id="procDesc">Every business has work that repeats itself every day. We identify those processes and turn them into automated pipelines — freeing your team to focus on what actually matters.</p>
+    </div>
+    <div class="proc-grid r">
+      <div class="proc-item"><span class="pi-icon">❓</span><h3 class="pi-title" id="pi1t">FAQ Responses</h3><p class="pi-desc" id="pi1d">Instant, consistent answers to your most-asked questions — prices, schedules, locations, policies — 24 hours a day.</p></div>
+      <div class="proc-item"><span class="pi-icon">📦</span><h3 class="pi-title" id="pi2t">Order Tracking</h3><p class="pi-desc" id="pi2d">Customers get automatic shipping updates at each stage — confirmed, shipped, delivered — without human intervention.</p></div>
+      <div class="proc-item"><span class="pi-icon">📅</span><h3 class="pi-title" id="pi3t">Appointment Reminders</h3><p class="pi-desc" id="pi3d">Booking confirmations and reminders sent automatically via WhatsApp — reducing no-shows by up to 60%.</p></div>
+      <div class="proc-item"><span class="pi-icon">📝</span><h3 class="pi-title" id="pi4t">Form Processing</h3><p class="pi-desc" id="pi4d">Lead forms, quotes, and contact requests automatically routed, logged in your CRM, and followed up on.</p></div>
+      <div class="proc-item"><span class="pi-icon">🧾</span><h3 class="pi-title" id="pi5t">Invoice Delivery</h3><p class="pi-desc" id="pi5d">Automatic invoice generation and delivery to customers after a purchase — with payment link included.</p></div>
+      <div class="proc-item"><span class="pi-icon">🔔</span><h3 class="pi-title" id="pi6t">Alerts & Notifications</h3><p class="pi-desc" id="pi6d">Stock alerts, payment reminders, subscription renewals, and internal team notifications — all automated.</p></div>
+      <div class="proc-item"><span class="pi-icon">🎯</span><h3 class="pi-title" id="pi7t">Lead Qualification</h3><p class="pi-desc" id="pi7d">Automated conversation flows that qualify leads before they reach your sales team — only warm leads pass through.</p></div>
+      <div class="proc-item"><span class="pi-icon">📊</span><h3 class="pi-title" id="pi8t">Scheduled Reports</h3><p class="pi-desc" id="pi8d">Daily, weekly, or monthly KPI reports sent automatically to your team — no manual data compilation needed.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- META API CHATBOTS -->
+<section class="meta-bg" id="chatbots" aria-labelledby="meta-heading">
+  <div class="sec-inner">
+    <div class="meta-intro r">
+      <div>
+        <span class="meta-badge" id="metaBadge">// Meta Business API</span>
+        <h2 class="sec-ttl" id="metaTitle">Chatbots on every<br><em>Meta channel.</em></h2>
+        <p class="sec-desc" id="metaDesc">We build chatbots using the official Meta Business API, connecting your business to where your customers already spend their time — WhatsApp, Instagram, and Facebook Messenger. With or without AI, we make your channels work for you 24/7.</p>
+      </div>
+      <div style="background:rgba(176,110,255,.05);border:1px solid rgba(176,110,255,.12);border-radius:18px;padding:2rem">
+        <p style="font-family:var(--ff-c);font-size:.62rem;color:rgba(176,110,255,.5);margin-bottom:1.2rem" translate="no">// meta-api.js — webhook handler</p>
+        <pre style="font-family:var(--ff-c);font-size:.7rem;color:rgba(176,110,255,.6);line-height:1.85;overflow:hidden" translate="no">app.post('/webhook', (req, res) =&gt; {
+  const msg = req.body.entry[0]
+    .changes[0].value.messages[0];
+
+  if (msg.type === 'text') {
+    const reply = <span style="color:rgba(0,186,255,.7)">bot.respond(msg.text.body)</span>;
+    sendMessage(msg.from, reply);
+  }
+
+  res.sendStatus(200);
+});</pre>
+      </div>
+    </div>
+    <div class="channels-grid r">
+      <div class="channel-card wa">
+        <span class="ch-icon">💬</span>
+        <p class="ch-tag">WhatsApp Business API</p>
+        <h3 class="ch-name" id="wa-name">WhatsApp</h3>
+        <p class="ch-desc" id="wa-desc">The #1 messaging app in Mexico and LATAM. Build automated flows, template messages, interactive menus, and AI-powered conversation directly inside WhatsApp.</p>
+        <ul class="ch-features" id="wa-list">
+          <li>Interactive menu buttons & quick replies</li>
+          <li>Message templates for notifications</li>
+          <li>Media messages: images, docs, audio</li>
+          <li>Handoff to live agent when needed</li>
+        </ul>
+      </div>
+      <div class="channel-card ig">
+        <span class="ch-icon">📸</span>
+        <p class="ch-tag">Instagram Direct API</p>
+        <h3 class="ch-name" id="ig-name">Instagram</h3>
+        <p class="ch-desc" id="ig-desc">Automate responses to DMs, story mentions, and comments. Capture leads directly from Instagram without manual intervention — convert followers into customers instantly.</p>
+        <ul class="ch-features" id="ig-list">
+          <li>Auto-reply to DMs and story mentions</li>
+          <li>Comment keyword triggers</li>
+          <li>Lead capture from story swipe-ups</li>
+          <li>Product catalog sharing in DMs</li>
+        </ul>
+      </div>
+      <div class="channel-card fb">
+        <span class="ch-icon">💙</span>
+        <p class="ch-tag">Facebook Messenger API</p>
+        <h3 class="ch-name" id="fb-name">Messenger</h3>
+        <p class="ch-desc" id="fb-desc">Automate your Facebook page's inbox with conversation flows integrated directly into your lead generation ads — converting clicks into conversations automatically.</p>
+        <ul class="ch-features" id="fb-list">
+          <li>Click-to-Messenger ad integration</li>
+          <li>Automated conversation sequences</li>
+          <li>Persistent menu & quick actions</li>
+          <li>Re-engagement campaigns</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WITH AI vs WITHOUT AI -->
+<section aria-labelledby="ai-heading">
+  <div class="sec-inner">
+    <div style="text-align:center;margin-bottom:4rem" class="r">
+      <p class="sec-eye" id="aiEye">// Choose your approach</p>
+      <h2 class="sec-ttl" id="aiTitle" style="text-align:center">Chatbots with AI<br>or <em>without AI</em> — both work.</h2>
+      <p class="sec-desc" id="aiDesc" style="margin:0 auto">You don't need AI to build a powerful chatbot. Both approaches solve real problems — the right choice depends on your volume, budget, and complexity.</p>
+    </div>
+    <div class="ai-grid r">
+      <div class="ai-card no-ai">
+        <p class="ai-label" id="noaiLabel">Without AI</p>
+        <h3 class="ai-title" id="noaiTitle">Rule-Based Chatbots</h3>
+        <p class="ai-sub" id="noaiSub">Structured flows with predefined menus, keyword triggers, and configured automatic responses.</p>
+        <ul class="ai-list" id="noaiList">
+          <li><span class="dot"></span><span id="noai1">Predefined conversation trees and menus</span></li>
+          <li><span class="dot"></span><span id="noai2">Keyword and button trigger responses</span></li>
+          <li><span class="dot"></span><span id="noai3">FAQ automation with exact matching</span></li>
+          <li><span class="dot"></span><span id="noai4">Instant responses, zero training needed</span></li>
+          <li><span class="dot"></span><span id="noai5">Predictable behavior — always responds the same way</span></li>
+          <li><span class="dot"></span><span id="noai6">Lower investment, fast deployment</span></li>
+        </ul>
+        <div class="ai-price"><p class="ai-price-label" id="noaiPriceLabel">Best for</p><p class="ai-price-value" id="noaiPriceVal">Structured, repetitive use cases</p></div>
+      </div>
+      <div class="ai-card with-ai">
+        <p class="ai-label" id="withaiLabel">With AI</p>
+        <h3 class="ai-title" id="withaiTitle">AI-Powered Chatbots</h3>
+        <p class="ai-sub" id="withaiSub">Conversational AI with natural language understanding that handles varied, complex customer interactions dynamically.</p>
+        <ul class="ai-list" id="withaiList">
+          <li><span class="dot"></span><span id="withai1">Natural language understanding (NLP)</span></li>
+          <li><span class="dot"></span><span id="withai2">Dynamic responses based on context</span></li>
+          <li><span class="dot"></span><span id="withai3">Handles topics not explicitly programmed</span></li>
+          <li><span class="dot"></span><span id="withai4">Learns from your business knowledge base</span></li>
+          <li><span class="dot"></span><span id="withai5">Manages complex, multi-step conversations</span></li>
+          <li><span class="dot"></span><span id="withai6">Scales without additional configuration</span></li>
+        </ul>
+        <div class="ai-price"><p class="ai-price-label" id="withaiPriceLabel">Best for</p><p class="ai-price-value" id="withaiPriceVal">High-volume, varied conversations</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section class="process-bg" aria-labelledby="related-heading">
+  <div class="sec-inner">
+    <div style="margin-bottom:3rem" class="r"><p class="sec-eye" id="relEye">// Also from LAZIA</p><h2 class="sec-ttl" id="relTitle">Connect your chatbot<br>to these services.</h2></div>
+    <div class="related-grid r">
+      <a href="/services/saas-erp-software/" class="rel-card cyan"><p class="rel-num">01 — Enterprise</p><h3 class="rel-title" id="rel1t">SaaS ERP & Software</h3><p class="rel-desc" id="rel1d">Connect your chatbot to your ERP so customers can check order status, invoices, and inventory in real time.</p><span class="rel-lnk">Explore &#x2192;</span></a>
+      <a href="/services/ecommerce-web-design/" class="rel-card gold"><p class="rel-num">02 — Commerce</p><h3 class="rel-title" id="rel2t">E-Commerce & Web Pages</h3><p class="rel-desc" id="rel2d">Add a WhatsApp chatbot to your online store to handle product questions, cart abandonment, and post-purchase support.</p><span class="rel-lnk">Explore &#x2192;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" aria-label="Call to action">
+  <h2 class="cta-ttl" id="ctaTitle">Ready to automate<br><em style="font-style:normal;background:linear-gradient(90deg,var(--purp-b),var(--elec));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">your business?</em></h2>
+  <p class="cta-sub" id="ctaSub">Let's identify what to automate first and build your first chatbot in weeks, not months.</p>
+  <a href="mailto:hello@lazia.com.mx" class="btn-p"><span id="ctaBtnText">Request Consultation</span><span aria-hidden="true">→</span></a>
+</section>
+
+<footer class="foot" role="contentinfo">
+  <a href="/" class="foot-logo" translate="no">LAZIA</a>
+  <p class="foot-txt" id="footCopy">© 2024 LAZIA Creative Software Agency — lazia.com.mx</p>
+  <p class="foot-txt"><a href="mailto:hello@lazia.com.mx" style="color:inherit;text-decoration:none">hello@lazia.com.mx</a></p>
+</footer>
+
+<script>
+'use strict';
+(function initI18n(){
+  const D={
+    en:{doc_title:'Automations & Chatbots — LAZIA',meta_desc:'Business process automation and Meta API chatbots for WhatsApp, Instagram, and Messenger — with or without AI. By LAZIA.',meta_keys:'chatbot WhatsApp Mexico, Meta API chatbot, Instagram chatbot, workflow automation, business automation, AI chatbot, automatización procesos, LAZIA',og_title:'Automations & Chatbots — LAZIA',og_desc:'Meta API chatbots for WhatsApp, Instagram and Messenger — with or without AI. Business process automation by LAZIA.',og_locale:'en_US',canonical:'https://lazia.com.mx/services/automations-chatbots/',
+    nav_cta:'← All Services',bc_services:'Services',bc_current:'Automations & Chatbots',badge:'03 — Intelligence',h1:'Automations<br>& Chatbots',sub:'Eliminate repetitive work. Attend customers 24/7 without effort. Intelligent pipelines and Meta API chatbots that run while you sleep.',cta1:'Request Consultation',cta2:'What We Automate ↓',
+    proc_eye:'// What we automate',proc_title:'The most common<br>repetitive processes<br>we <em>eliminate.</em>',proc_desc:"Every business has work that repeats itself every day. We identify those processes and turn them into automated pipelines — freeing your team to focus on what actually matters.",
+    pi1t:'FAQ Responses',pi1d:'Instant, consistent answers to your most-asked questions — prices, schedules, locations, policies — 24 hours a day.',pi2t:'Order Tracking',pi2d:'Customers get automatic shipping updates at each stage — confirmed, shipped, delivered — without human intervention.',pi3t:'Appointment Reminders',pi3d:'Booking confirmations and reminders sent automatically via WhatsApp — reducing no-shows by up to 60%.',pi4t:'Form Processing',pi4d:'Lead forms, quotes, and contact requests automatically routed, logged in your CRM, and followed up on.',pi5t:'Invoice Delivery',pi5d:'Automatic invoice generation and delivery to customers after a purchase — with payment link included.',pi6t:'Alerts & Notifications',pi6d:'Stock alerts, payment reminders, subscription renewals, and internal team notifications — all automated.',pi7t:'Lead Qualification',pi7d:'Automated conversation flows that qualify leads before they reach your sales team — only warm leads pass through.',pi8t:'Scheduled Reports',pi8d:'Daily, weekly, or monthly KPI reports sent automatically to your team — no manual data compilation needed.',
+    meta_badge:'// Meta Business API',meta_title:'Chatbots on every<br><em>Meta channel.</em>',meta_desc_txt:'We build chatbots using the official Meta Business API, connecting your business to where your customers already spend their time — with or without AI, we make your channels work 24/7.',
+    wa_name:'WhatsApp',wa_desc:'The #1 messaging app in Mexico and LATAM. Build automated flows, template messages, interactive menus, and AI-powered conversation directly inside WhatsApp.',wa1:'Interactive menu buttons & quick replies',wa2:'Message templates for notifications',wa3:'Media messages: images, docs, audio',wa4:'Handoff to live agent when needed',
+    ig_name:'Instagram',ig_desc:'Automate responses to DMs, story mentions, and comments. Capture leads directly from Instagram without manual intervention.',ig1:'Auto-reply to DMs and story mentions',ig2:'Comment keyword triggers',ig3:'Lead capture from story swipe-ups',ig4:'Product catalog sharing in DMs',
+    fb_name:'Messenger',fb_desc:'Automate your Facebook page inbox with conversation flows integrated into your lead generation ads — converting clicks into conversations automatically.',fb1:'Click-to-Messenger ad integration',fb2:'Automated conversation sequences',fb3:'Persistent menu & quick actions',fb4:'Re-engagement campaigns',
+    ai_eye:'// Choose your approach',ai_title:'Chatbots with AI<br>or <em>without AI</em> — both work.',ai_desc:"You don't need AI to build a powerful chatbot. Both approaches solve real problems — the right choice depends on your volume, budget, and complexity.",
+    noai_label:'Without AI',noai_title:'Rule-Based Chatbots',noai_sub:'Structured flows with predefined menus, keyword triggers, and configured automatic responses.',noai1:'Predefined conversation trees and menus',noai2:'Keyword and button trigger responses',noai3:'FAQ automation with exact matching',noai4:'Instant responses, zero training needed',noai5:'Predictable behavior — always responds the same way',noai6:'Lower investment, fast deployment',noai_price_label:'Best for',noai_price_val:'Structured, repetitive use cases',
+    withai_label:'With AI',withai_title:'AI-Powered Chatbots',withai_sub:'Conversational AI with natural language understanding that handles varied, complex customer interactions dynamically.',withai1:'Natural language understanding (NLP)',withai2:'Dynamic responses based on context',withai3:'Handles topics not explicitly programmed',withai4:'Learns from your business knowledge base',withai5:'Manages complex, multi-step conversations',withai6:'Scales without additional configuration',withai_price_label:'Best for',withai_price_val:'High-volume, varied conversations',
+    rel_eye:'// Also from LAZIA',rel_title:'Connect your chatbot<br>to these services.',rel1t:'SaaS ERP & Software',rel1d:'Connect your chatbot to your ERP so customers can check order status, invoices, and inventory in real time.',rel2t:'E-Commerce & Web Pages',rel2d:'Add a WhatsApp chatbot to your store to handle product questions, cart abandonment, and post-purchase support.',
+    cta_title:'Ready to automate<br><em style="font-style:normal;background:linear-gradient(90deg,var(--purp-b),var(--elec));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">your business?</em>',cta_sub:"Let's identify what to automate first and build your first chatbot in weeks, not months.",cta_btn:'Request Consultation',foot_copy:'© 2024 LAZIA Creative Software Agency — lazia.com.mx',toast_q:'Would you like to view this page in <strong>English</strong>?',toast_yes:'Yes, switch',toast_no:'No, thanks'},
+    es:{doc_title:'Automatizaciones y Chatbots — LAZIA',meta_desc:'Automatización de procesos y chatbots vía API de Meta para WhatsApp, Instagram y Messenger — con o sin IA. Por LAZIA.',meta_keys:'chatbot WhatsApp México, chatbot API Meta, chatbot Instagram, automatización procesos, chatbot IA, chatbot sin inteligencia artificial, LAZIA automatización',og_title:'Automatizaciones y Chatbots — LAZIA',og_desc:'Chatbots vía API de Meta para WhatsApp, Instagram y Messenger — con o sin IA. Automatización empresarial por LAZIA.',og_locale:'es_ES',canonical:'https://lazia.com.mx/es/servicios/automatizaciones-chatbots/',
+    nav_cta:'← Todos los Servicios',bc_services:'Servicios',bc_current:'Automatizaciones y Chatbots',badge:'03 — Inteligencia',h1:'Automatizaciones<br>& Chatbots',sub:'Elimina el trabajo repetitivo. Atiende clientes 24/7 sin esfuerzo. Pipelines inteligentes y chatbots vía API de Meta que trabajan mientras duermes.',cta1:'Solicitar Consulta',cta2:'Qué Automatizamos ↓',
+    proc_eye:'// Lo que automatizamos',proc_title:'Los procesos repetitivos<br>más comunes que<br><em>eliminamos.</em>',proc_desc:'Todo negocio tiene trabajo que se repite todos los días. Identificamos esos procesos y los convertimos en pipelines automatizados — liberando a tu equipo para enfocarse en lo que realmente importa.',
+    pi1t:'Respuestas a Preguntas Frecuentes',pi1d:'Respuestas instantáneas y consistentes a tus preguntas más frecuentes — precios, horarios, ubicaciones, políticas — las 24 horas.',pi2t:'Seguimiento de Pedidos',pi2d:'Los clientes reciben actualizaciones automáticas en cada etapa — confirmado, enviado, entregado — sin intervención humana.',pi3t:'Recordatorios de Citas',pi3d:'Confirmaciones de citas y recordatorios enviados automáticamente por WhatsApp — reduciendo ausencias hasta un 60%.',pi4t:'Procesamiento de Formularios',pi4d:'Formularios de leads, cotizaciones y contacto automáticamente enrutados, registrados en tu CRM y con seguimiento.',pi5t:'Envío de Facturas',pi5d:'Generación y envío automático de facturas a clientes después de una compra — con link de pago incluido.',pi6t:'Alertas y Notificaciones',pi6d:'Alertas de stock, recordatorios de pago, renovaciones de suscripción y notificaciones internas del equipo — todo automatizado.',pi7t:'Calificación de Leads',pi7d:'Flujos de conversación automatizados que califican leads antes de que lleguen a tu equipo de ventas — solo pasan los leads calientes.',pi8t:'Reportes Programados',pi8d:'Reportes de KPIs diarios, semanales o mensuales enviados automáticamente a tu equipo — sin compilación manual de datos.',
+    meta_badge:'// API de Meta Business',meta_title:'Chatbots en cada<br>canal de <em>Meta.</em>',meta_desc_txt:'Construimos chatbots usando la API oficial de Meta Business, conectando tu negocio donde tus clientes ya pasan su tiempo — con o sin IA, hacemos que tus canales trabajen 24/7.',
+    wa_name:'WhatsApp',wa_desc:'La app de mensajería #1 en México y LATAM. Construye flujos automatizados, mensajes de plantilla, menús interactivos y conversación con IA directamente dentro de WhatsApp.',wa1:'Botones de menú interactivo y respuestas rápidas',wa2:'Plantillas de mensajes para notificaciones',wa3:'Mensajes multimedia: imágenes, docs, audio',wa4:'Transferencia a agente humano cuando se requiera',
+    ig_name:'Instagram',ig_desc:'Automatiza respuestas a DMs, menciones en stories y comentarios. Captura leads directamente desde Instagram sin intervención manual.',ig1:'Auto-respuesta a DMs y menciones en stories',ig2:'Disparadores por palabras clave en comentarios',ig3:'Captura de leads desde swipe-ups de stories',ig4:'Compartir catálogo de productos en DMs',
+    fb_name:'Messenger',fb_desc:'Automatiza el inbox de tu página de Facebook con flujos de conversación integrados directamente a tus anuncios de generación de leads.',fb1:'Integración con anuncios Click-to-Messenger',fb2:'Secuencias de conversación automatizadas',fb3:'Menú persistente y acciones rápidas',fb4:'Campañas de re-engagement',
+    ai_eye:'// Elige tu enfoque',ai_title:'Chatbots con IA<br>o <em>sin IA</em> — ambos funcionan.',ai_desc:'No necesitas IA para construir un chatbot poderoso. Ambos enfoques resuelven problemas reales — la elección correcta depende de tu volumen, presupuesto y complejidad.',
+    noai_label:'Sin IA',noai_title:'Chatbots por Reglas',noai_sub:'Flujos estructurados con menús predefinidos, disparadores por palabras clave y respuestas automáticas configuradas.',noai1:'Árboles de conversación y menús predefinidos',noai2:'Respuestas por disparadores de botones y palabras clave',noai3:'Automatización de FAQ con coincidencia exacta',noai4:'Respuestas instantáneas, sin entrenamiento necesario',noai5:'Comportamiento predecible — siempre responde igual',noai6:'Menor inversión, despliegue rápido',noai_price_label:'Ideal para',noai_price_val:'Casos de uso estructurados y repetitivos',
+    withai_label:'Con IA',withai_title:'Chatbots con Inteligencia Artificial',withai_sub:'IA conversacional con comprensión de lenguaje natural que maneja interacciones variadas y complejas de forma dinámica.',withai1:'Comprensión de lenguaje natural (NLP)',withai2:'Respuestas dinámicas basadas en contexto',withai3:'Maneja temas no programados explícitamente',withai4:'Aprende de la base de conocimiento de tu negocio',withai5:'Gestiona conversaciones complejas y de múltiples pasos',withai6:'Escala sin configuración adicional',withai_price_label:'Ideal para',withai_price_val:'Conversaciones variadas y de alto volumen',
+    rel_eye:'// También de LAZIA',rel_title:'Conecta tu chatbot<br>a estos servicios.',rel1t:'SaaS ERP y Software',rel1d:'Conecta tu chatbot al ERP para que los clientes puedan consultar estado de pedidos, facturas e inventario en tiempo real.',rel2t:'E-Commerce y Páginas Web',rel2d:'Agrega un chatbot de WhatsApp a tu tienda para manejar preguntas de productos, abandono de carrito y soporte post-compra.',
+    cta_title:'¿Listo para automatizar<br><em style="font-style:normal;background:linear-gradient(90deg,var(--purp-b),var(--elec));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">tu negocio?</em>',cta_sub:'Identifiquemos qué automatizar primero y construyamos tu primer chatbot en semanas, no meses.',cta_btn:'Solicitar Consulta',foot_copy:'© 2024 LAZIA Agencia de Software Creativo — lazia.com.mx',toast_q:'¿Prefieres ver esta página en <strong>Español</strong>?',toast_yes:'Sí, cambiar',toast_no:'No, gracias'}
+  };
+  const MAP=[['#navCta','nav_cta',false],['#bcServices','bc_services',false],['#bcCurrent','bc_current',false],['#heroBadge','badge',false],['#heroH1','h1',true],['#heroSub','sub',false],['#heroCtaText','cta1',false],['#heroLearn','cta2',false],['#procEye','proc_eye',false],['#procTitle','proc_title',true],['#procDesc','proc_desc',false],['#pi1t','pi1t',false],['#pi1d','pi1d',false],['#pi2t','pi2t',false],['#pi2d','pi2d',false],['#pi3t','pi3t',false],['#pi3d','pi3d',false],['#pi4t','pi4t',false],['#pi4d','pi4d',false],['#pi5t','pi5t',false],['#pi5d','pi5d',false],['#pi6t','pi6t',false],['#pi6d','pi6d',false],['#pi7t','pi7t',false],['#pi7d','pi7d',false],['#pi8t','pi8t',false],['#pi8d','pi8d',false],['#metaBadge','meta_badge',false],['#metaTitle','meta_title',true],['#metaDesc','meta_desc_txt',false],['#wa-name','wa_name',false],['#wa-desc','wa_desc',false],['#ig-name','ig_name',false],['#ig-desc','ig_desc',false],['#fb-name','fb_name',false],['#fb-desc','fb_desc',false],['#aiEye','ai_eye',false],['#aiTitle','ai_title',true],['#aiDesc','ai_desc',false],['#noaiLabel','noai_label',false],['#noaiTitle','noai_title',false],['#noaiSub','noai_sub',false],['#noai1','noai1',false],['#noai2','noai2',false],['#noai3','noai3',false],['#noai4','noai4',false],['#noai5','noai5',false],['#noai6','noai6',false],['#noaiPriceLabel','noai_price_label',false],['#noaiPriceVal','noai_price_val',false],['#withaiLabel','withai_label',false],['#withaiTitle','withai_title',false],['#withaiSub','withai_sub',false],['#withai1','withai1',false],['#withai2','withai2',false],['#withai3','withai3',false],['#withai4','withai4',false],['#withai5','withai5',false],['#withai6','withai6',false],['#withaiPriceLabel','withai_price_label',false],['#withaiPriceVal','withai_price_val',false],['#relEye','rel_eye',false],['#relTitle','rel_title',true],['#rel1t','rel1t',false],['#rel1d','rel1d',false],['#rel2t','rel2t',false],['#rel2d','rel2d',false],['#ctaTitle','cta_title',true],['#ctaSub','cta_sub',false],['#ctaBtnText','cta_btn',false],['#footCopy','foot_copy',false]];
+  // Also update wa/ig/fb feature lists
+  const LISTS={wa_list:['wa1','wa2','wa3','wa4'],ig_list:['ig1','ig2','ig3','ig4'],fb_list:['fb1','fb2','fb3','fb4'],withaiList:['withai1','withai2','withai3','withai4','withai5','withai6'],noaiList:['noai1','noai2','noai3','noai4','noai5','noai6']};
+  function applyLang(lang){
+    if(!D[lang])return;var tx=D[lang];
+    document.documentElement.lang=lang;document.title=tx.doc_title;
+    var md=document.getElementById('metaDesc'),mk=document.getElementById('metaKeys'),ogt=document.getElementById('ogTitle'),ogd=document.getElementById('ogDesc'),ogl=document.getElementById('ogLocale'),can=document.getElementById('linkCanonical');
+    if(md)md.setAttribute('content',tx.meta_desc);if(mk)mk.setAttribute('content',tx.meta_keys);if(ogt)ogt.setAttribute('content',tx.og_title);if(ogd)ogd.setAttribute('content',tx.og_desc);if(ogl)ogl.setAttribute('content',tx.og_locale);if(can)can.setAttribute('href',tx.canonical);
+    MAP.forEach(function(r){var el=document.querySelector(r[0]);if(!el||!tx[r[1]])return;if(r[2])el.innerHTML=tx[r[1]];else el.textContent=tx[r[1]];});
+    var cur=document.getElementById('nlCurrent');if(cur)cur.textContent=lang.toUpperCase();
+    document.querySelectorAll('.nl-opt').forEach(function(o){var a=o.dataset.lang===lang;o.classList.toggle('active',a);o.setAttribute('aria-selected',a?'true':'false');});
+    try{localStorage.setItem('lazia_lang',lang);}catch(e){}
+  }
+  var nlBtn=document.getElementById('nlBtn'),nlDrop=document.getElementById('nlDrop');
+  nlBtn.addEventListener('click',function(e){e.stopPropagation();var o=nlDrop.classList.toggle('open');nlBtn.classList.toggle('open',o);nlBtn.setAttribute('aria-expanded',o?'true':'false');});
+  document.addEventListener('click',function(){nlDrop.classList.remove('open');nlBtn.classList.remove('open');});
+  document.querySelectorAll('.nl-opt').forEach(function(opt){opt.addEventListener('click',function(){applyLang(opt.dataset.lang);nlDrop.classList.remove('open');nlBtn.classList.remove('open');hideToast();});});
+  var toast=document.getElementById('langToast'),ltMsg=document.getElementById('ltMsg'),ltYes=document.getElementById('ltYes'),ltNo=document.getElementById('ltNo'),tt=null;
+  function showToast(l){var tx=D[l];if(!tx)return;ltMsg.innerHTML=tx.toast_q;ltYes.textContent=tx.toast_yes;ltNo.textContent=tx.toast_no;ltYes.onclick=function(){applyLang(l);hideToast();};ltNo.onclick=function(){try{localStorage.setItem('lazia_toast_dismissed','1');}catch(e){}hideToast();};tt=setTimeout(function(){toast.classList.add('show');},900);}
+  function hideToast(){if(tt){clearTimeout(tt);tt=null;}toast.classList.remove('show');}
+  (function init(){var saved,dismissed;try{saved=localStorage.getItem('lazia_lang');dismissed=localStorage.getItem('lazia_toast_dismissed');}catch(e){}if(saved&&D[saved]){applyLang(saved);return;}var bl=((navigator.language||(navigator.languages&&navigator.languages[0]))||'en').toLowerCase().split('-')[0];if(['es'].indexOf(bl)!==-1&&!dismissed)showToast(bl);})();
+})();
+const cDot=document.getElementById('cDot'),cRing=document.getElementById('cRing');let mx=-200,my=-200,rx=-200,ry=-200;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cDot.style.left=mx+'px';cDot.style.top=my+'px';});
+(function tick(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cRing.style.left=rx+'px';cRing.style.top=ry+'px';requestAnimationFrame(tick);})();
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>55),{passive:true});
+(function(){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.1});document.querySelectorAll('.r').forEach(el=>io.observe(el));})();
+/* HERO CANVAS — purple flow particles */
+(function(){
+  const cv=document.getElementById('heroCanvas'),ctx=cv.getContext('2d');
+  let W=0,H=0;
+  function resize(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;}resize();window.addEventListener('resize',resize,{passive:true});
+  const NDef=[{px:.12,py:.25,col:'#A855F7'},{px:.35,py:.18,col:'#8B2FC9'},{px:.6,py:.3,col:'#C084FC'},{px:.85,py:.22,col:'#A855F7'},{px:.22,py:.72,col:'#7C3AED'},{px:.5,py:.78,col:'#A855F7'},{px:.76,py:.68,col:'#8B2FC9'}];
+  const EDef=[[0,1],[1,2],[2,3],[0,4],[4,5],[5,6],[1,5],[2,6]];
+  let t=0;
+  class Pkt{constructor(fi,ti){this.fi=fi;this.ti=ti;this.t=Math.random();this.spd=Math.random()*.01+.004;this.r=Math.random()*2.5+1;this.a=Math.random()*.7+.3;this.trail=[];this.px=0;this.py=0;}
+    tick(ns){const f=ns[this.fi],to=ns[this.ti];this.t+=this.spd;if(this.t>1){this.t=0;this.trail=[];}const mt=1-this.t;this.px=mt*mt*f.x+2*mt*this.t*((f.x+to.x)/2)+this.t*this.t*to.x;this.py=mt*mt*f.y+2*mt*this.t*((f.y+to.y)/2)+this.t*this.t*to.y;this.trail.push({x:this.px,y:this.py});if(this.trail.length>8)this.trail.shift();}
+    draw(){this.trail.forEach((pt,i)=>{ctx.globalAlpha=(i/this.trail.length)*this.a*.22;ctx.beginPath();ctx.arc(pt.x,pt.y,this.r*(i/this.trail.length)*.5,0,Math.PI*2);ctx.fillStyle='#C084FC';ctx.fill();});ctx.save();ctx.globalAlpha=this.a;ctx.shadowBlur=18;ctx.shadowColor='#B06EFF';ctx.beginPath();ctx.arc(this.px,this.py,this.r,0,Math.PI*2);ctx.fillStyle='#C084FC';ctx.fill();ctx.restore();ctx.globalAlpha=1;}
+  }
+  function getNodes(){return NDef.map(n=>({...n,x:n.px*W,y:n.py*H}));}
+  const pkts=[];
+  let ready=false;
+  function frame(){
+    if(!W||!H){requestAnimationFrame(frame);return;}
+    t+=.025;const ns=getNodes();
+    if(!ready){EDef.forEach(([fi,ti])=>{pkts.push(new Pkt(fi,ti));pkts.push(new Pkt(fi,ti));});pkts.forEach(p=>p.t=Math.random());ready=true;}
+    ctx.fillStyle='#060610';ctx.fillRect(0,0,W,H);
+    const g=ctx.createRadialGradient(W*.5,H*.5,0,W*.5,H*.5,H*.9);g.addColorStop(0,'rgba(40,0,80,.5)');g.addColorStop(1,'rgba(6,6,16,0)');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    EDef.forEach(([fi,ti])=>{const f=ns[fi],to=ns[ti];ctx.beginPath();ctx.moveTo(f.x,f.y);ctx.quadraticCurveTo((f.x+to.x)/2,(f.y+to.y)/2,to.x,to.y);ctx.strokeStyle='rgba(139,47,201,.18)';ctx.lineWidth=1.2;ctx.globalAlpha=1;ctx.stroke();});
+    pkts.forEach(p=>{p.tick(ns);p.draw();});
+    ns.forEach((n,i)=>{const pulse=Math.sin(t+i*1.2)*2.5,r=14+pulse;ctx.save();ctx.shadowBlur=16+pulse;ctx.shadowColor=n.col;ctx.beginPath();ctx.arc(n.x,n.y,r,0,Math.PI*2);const ng=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,r);ng.addColorStop(0,n.col+'44');ng.addColorStop(1,n.col+'0D');ctx.fillStyle=ng;ctx.globalAlpha=.9;ctx.fill();ctx.strokeStyle=n.col;ctx.lineWidth=1.5;ctx.globalAlpha=.8;ctx.stroke();ctx.restore();});
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+</script>
+</body>
+</html>
