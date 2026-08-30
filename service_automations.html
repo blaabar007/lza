@@ -160,11 +160,24 @@
     @media(max-width:1080px){.proc-grid{grid-template-columns:repeat(2,1fr)}.channels-grid{grid-template-columns:1fr 1fr}.meta-intro{grid-template-columns:1fr}}
     @media(max-width:768px){.nav,.nav.s{padding:1.2rem 1.5rem}.nav-links{display:none}section{padding:5rem 1.5rem}.hero-content{padding:0 1.5rem}.proc-grid{grid-template-columns:1fr 1fr}.channels-grid{grid-template-columns:1fr}.ai-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr}.cta-band{padding:4rem 1.5rem}.foot{flex-direction:column;text-align:center;padding:1.8rem 1.5rem}.nl-btn{padding:.36rem .75rem;font-size:.68rem}#nlCurrent{display:none}.lang-toast{width:calc(100% - 2rem);bottom:.8rem}.lt-inner{white-space:normal;flex-wrap:wrap;justify-content:center;gap:.7rem;padding:.9rem 1.1rem}.lt-msg{text-align:center}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float{position:fixed;bottom:2rem;right:2rem;z-index:8000;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 28px rgba(37,211,102,.5);transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;text-decoration:none}
+    .wa-float:hover{transform:scale(1.12) translateY(-3px);box-shadow:0 14px 44px rgba(37,211,102,.65)}
+    .wa-float::before{content:'';position:absolute;inset:-7px;border-radius:50%;border:2px solid rgba(37,211,102,.38);animation:wa-pulse 2.8s ease-in-out infinite}
+    @keyframes wa-pulse{0%,100%{transform:scale(1);opacity:.7}60%{transform:scale(1.22);opacity:0}}
+    @media(max-width:768px){.wa-float{bottom:1.2rem;right:1.2rem;width:52px;height:52px}}
   </style>
 </head>
 <body>
 <div class="c-dot" id="cDot" aria-hidden="true"></div>
 <div class="c-ring" id="cRing" aria-hidden="true"></div>
+<!-- WHATSAPP FLOAT BUTTON -->
+<a href="https://wa.me/525540176798?text=Hola%2C%20me%20interesa%20obtener%20información%20sobre%20los%20servicios%20de%20LAZIA." class="wa-float" target="_blank" rel="noopener noreferrer"
+   aria-label="Contactar por WhatsApp" title="WhatsApp: 55 4017 6798">
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
 <div class="lang-toast" id="langToast" role="dialog" aria-live="polite">
   <div class="lt-inner"><span aria-hidden="true">🌐</span><p class="lt-msg" id="ltMsg">¿Prefieres ver esta página en <strong>Español</strong>?</p><div class="lt-btns"><button class="lt-yes" id="ltYes">Sí, cambiar</button><button class="lt-no" id="ltNo">No, gracias</button></div></div>
 </div>
@@ -184,7 +197,7 @@
         <button class="nl-opt" data-lang="es" role="option" aria-selected="false">🇪🇸 Español</button>
       </div>
     </div>
-    <a href="index.html#services" class="nav-cta" id="navCta">← All Services</a>
+    <a href="https://wa.me/525540176798?text=Hola%2C%20me%20interesa%20obtener%20información%20sobre%20los%20servicios%20de%20LAZIA." class="nav-cta" target="_blank" rel="noopener" id="navCta">WhatsApp &#x2197;</a>
   </div>
 </nav>
 
@@ -201,7 +214,7 @@
     <h1 class="svc-h1" id="heroH1">Automations<br>& Chatbots</h1>
     <p class="svc-sub" id="heroSub">Eliminate repetitive work. Attend customers 24/7 without effort. Intelligent pipelines and Meta API chatbots that run while you sleep.</p>
     <div class="hero-ctas">
-      <a href="mailto:hello@lazia.com.mx" class="btn-p"><span id="heroCtaText">Request Consultation</span><span aria-hidden="true">→</span></a>
+      <a href="https://wa.me/525540176798?text=Hola%2C%20me%20interesa%20obtener%20información%20sobre%20los%20servicios%20de%20LAZIA." class="btn-p" target="_blank" rel="noopener"><span id="heroCtaText">Request Consultation</span><span aria-hidden="true">→</span></a>
       <a href="#processes" class="btn-g" id="heroLearn">What We Automate ↓</a>
     </div>
   </div>
@@ -349,7 +362,7 @@
 <section class="cta-band" aria-label="Call to action">
   <h2 class="cta-ttl" id="ctaTitle">Ready to automate<br><em style="font-style:normal;background:linear-gradient(90deg,var(--purp-b),var(--elec));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">your business?</em></h2>
   <p class="cta-sub" id="ctaSub">Let's identify what to automate first and build your first chatbot in weeks, not months.</p>
-  <a href="mailto:hello@lazia.com.mx" class="btn-p"><span id="ctaBtnText">Request Consultation</span><span aria-hidden="true">→</span></a>
+  <a href="https://wa.me/525540176798?text=Hola%2C%20me%20interesa%20obtener%20información%20sobre%20los%20servicios%20de%20LAZIA." class="btn-p" target="_blank" rel="noopener"><span id="ctaBtnText">Request Consultation</span><span aria-hidden="true">→</span></a>
 </section>
 
 <footer class="foot" role="contentinfo">
