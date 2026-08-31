@@ -1,118 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   LAZIA — sitemap.xml
-  Includes hreflang annotations for EN / ES.
-  Update <lastmod> after each significant content change.
-  Submit to: https://search.google.com/search-console
-             https://www.bing.com/webmasters/
+  Sitio completamente en español, alojado en GitHub Pages.
+  Actualiza <lastmod> cada vez que hagas cambios importantes.
+  Súbelo a: https://search.google.com/search-console → Sitemaps
+             https://www.bing.com/webmasters/ → Sitemaps
 -->
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml"
-  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- ══════════════════════════════════════
-       HOMEPAGE
-  ══════════════════════════════════════ -->
-
-  <!-- EN -->
+  <!-- INICIO -->
   <url>
     <loc>https://lazia.com.mx/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://lazia.com.mx/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://lazia.com.mx/es/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lazia.com.mx/"/>
-    <lastmod>2026-08-29</lastmod>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- ES -->
+  <!-- SISTEMAS Y SOFTWARE ERP -->
   <url>
-    <loc>https://lazia.com.mx/es/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://lazia.com.mx/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://lazia.com.mx/es/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lazia.com.mx/"/>
-    <lastmod>2026-08-29</lastmod>
+    <loc>https://lazia.com.mx/service-erp.html</loc>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <priority>0.9</priority>
   </url>
 
-  <!-- ══════════════════════════════════════
-       SERVICE 1 — SaaS ERP & Software
-  ══════════════════════════════════════ -->
-
-  <!-- EN -->
+  <!-- TIENDAS EN LÍNEA Y PÁGINAS WEB -->
   <url>
-    <loc>https://lazia.com.mx/services/saas-erp-software/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://lazia.com.mx/services/saas-erp-software/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://lazia.com.mx/es/servicios/saas-erp-software/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lazia.com.mx/services/saas-erp-software/"/>
-    <lastmod>2026-08-29</lastmod>
+    <loc>https://lazia.com.mx/service-ecommerce.html</loc>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.9</priority>
   </url>
 
-  <!-- ES -->
+  <!-- CHATBOTS Y AUTOMATIZACIONES -->
   <url>
-    <loc>https://lazia.com.mx/es/servicios/saas-erp-software/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://lazia.com.mx/services/saas-erp-software/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://lazia.com.mx/es/servicios/saas-erp-software/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lazia.com.mx/services/saas-erp-software/"/>
-    <lastmod>2026-08-29</lastmod>
+    <loc>https://lazia.com.mx/service-automations.html</loc>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- ══════════════════════════════════════
-       SERVICE 2 — E-Commerce Web Design
-  ══════════════════════════════════════ -->
-
-  <!-- EN -->
-  <url>
-    <loc>https://lazia.com.mx/services/ecommerce-web-design/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://lazia.com.mx/services/ecommerce-web-design/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://lazia.com.mx/es/servicios/diseno-ecommerce/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lazia.com.mx/services/ecommerce-web-design/"/>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- ES -->
-  <url>
-    <loc>https://lazia.com.mx/es/servicios/diseno-ecommerce/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://lazia.com.mx/services/ecommerce-web-design/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://lazia.com.mx/es/servicios/diseno-ecommerce/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lazia.com.mx/services/ecommerce-web-design/"/>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- ══════════════════════════════════════
-       SERVICE 3 — Automations & Chatbots
-  ══════════════════════════════════════ -->
-
-  <!-- EN -->
-  <url>
-    <loc>https://lazia.com.mx/services/automations-chatbots/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://lazia.com.mx/services/automations-chatbots/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://lazia.com.mx/es/servicios/automatizaciones-chatbots/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lazia.com.mx/services/automations-chatbots/"/>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- ES -->
-  <url>
-    <loc>https://lazia.com.mx/es/servicios/automatizaciones-chatbots/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://lazia.com.mx/services/automations-chatbots/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://lazia.com.mx/es/servicios/automatizaciones-chatbots/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lazia.com.mx/services/automations-chatbots/"/>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.9</priority>
   </url>
 
 </urlset>

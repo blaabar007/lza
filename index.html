@@ -1,72 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+ 
   <!-- ═══════════════════════════════════════════
-       PRIMARY SEO
+       SEO
   ═══════════════════════════════════════════ -->
-  <title>LAZIA — Unleashing Digital Craftsmanship</title>
-  <meta id="metaDesc" name="description"
-        content="Award-winning software agency building SaaS ERP platforms, immersive e-commerce and AI-powered automation pipelines. Code that redefines entire industries.">
-  <meta id="metaKeys" name="keywords"
-        content="software development agency, SaaS ERP development, custom ERP software, e-commerce web design, AI automation, chatbots, workflow automation, full-stack development, digital craftsmanship, custom web applications, software consulting, creative software agency">
-  <meta name="author"  content="LAZIA Creative Software Agency">
-  <meta name="robots"  content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>LAZIA — Agencia de Software en México | ERP, Tiendas y Chatbots</title>
+  <meta name="description"
+        content="Agencia de software en México. Hacemos sistemas ERP a la medida, tiendas en línea y chatbots de WhatsApp para negocios en Pachuca, CDMX, Estado de México y todo el país.">
+  <meta name="keywords"
+        content="software Pachuca, software CDMX, software Estado de México, agencia de software México, LAZIA software, LAZIA México, sistema ERP a la medida, tienda en línea México, chatbot WhatsApp México, desarrollo de software Hidalgo, automatización de procesos, software para negocios México">
+  <meta name="author"  content="LAZIA">
+  <meta name="robots"  content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="theme-color" content="#060610">
-  <meta name="msapplication-TileColor" content="#060610">
-
-  <!-- ═══════════════════════════════════════════
-       CANONICAL & HREFLANG
-  ═══════════════════════════════════════════ -->
-  <link id="linkCanonical" rel="canonical"  href="https://lazia.com.mx/">
-  <link rel="alternate" hreflang="en"        href="https://lazia.com.mx/">
-  <link rel="alternate" hreflang="es"        href="https://lazia.com.mx/es/">
-  <link rel="alternate" hreflang="x-default" href="https://lazia.com.mx/">
-
-  <!-- ═══════════════════════════════════════════
-       OPEN GRAPH (Facebook, LinkedIn, WhatsApp…)
-  ═══════════════════════════════════════════ -->
+  <!-- Geolocalización -->
+  <meta name="geo.region"    content="MX-HGO">
+  <meta name="geo.placename" content="Pachuca de Soto, Hidalgo, México">
+  <meta name="geo.position"  content="20.1011;-98.7591">
+  <meta name="ICBM"          content="20.1011, -98.7591">
+  <meta name="language"      content="es">
+  <meta name="coverage"      content="México">
+  <meta name="distribution"  content="global">
+ 
+  <link rel="canonical" href="https://lazia.com.mx/">
+ 
+  <!-- OPEN GRAPH -->
   <meta property="og:type"        content="website">
   <meta property="og:site_name"   content="LAZIA">
   <meta property="og:url"         content="https://lazia.com.mx/">
-  <meta id="ogTitle" property="og:title"
-        content="LAZIA — Unleashing Digital Craftsmanship">
-  <meta id="ogDesc"  property="og:description"
-        content="Award-winning creative software agency. SaaS ERP, e-commerce web design, and AI automation that redefines industries.">
-  <meta property="og:image"        content="https://lazia.com.mx/og-image.jpg">
-  <meta property="og:image:width"  content="1200">
+  <meta property="og:title"       content="LAZIA — Agencia de Software en México">
+  <meta property="og:description" content="Sistemas a la medida, tiendas en línea y chatbots de WhatsApp para tu negocio.">
+  <meta property="og:image"       content="https://lazia.com.mx/og-image.jpg">
+  <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt"    content="LAZIA — Unleashing Digital Craftsmanship">
-  <meta id="ogLocale" property="og:locale"   content="en_US">
-  <meta property="og:locale:alternate" content="es_ES">
-
-  <!-- ═══════════════════════════════════════════
-       TWITTER / X CARD
-  ═══════════════════════════════════════════ -->
+  <meta property="og:locale"      content="es_MX">
+ 
+  <!-- TWITTER / X -->
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:site"        content="@laziastudio">
-  <meta name="twitter:creator"     content="@laziastudio">
-  <meta name="twitter:title"       content="LAZIA — Unleashing Digital Craftsmanship">
-  <meta name="twitter:description" content="Award-winning creative software agency. SaaS ERP, e-commerce web design, and AI automation.">
+  <meta name="twitter:title"       content="LAZIA — Software que trabaja por ti">
+  <meta name="twitter:description" content="Sistemas a la medida, tiendas en línea y chatbots de WhatsApp para tu negocio.">
   <meta name="twitter:image"       content="https://lazia.com.mx/og-image.jpg">
-  <meta name="twitter:image:alt"   content="LAZIA Creative Software Agency">
-
-  <!-- ═══════════════════════════════════════════
-       FAVICON
-       Place favicon.svg (included in this bundle)
-       in your web root alongside this file.
-  ═══════════════════════════════════════════ -->
+ 
+  <!-- FAVICON -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <!-- Legacy .ico fallback (generate via https://favicon.io) -->
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="favicon.svg">
-
-  <!-- ═══════════════════════════════════════════
-       STRUCTURED DATA — JSON-LD
-       Organization + Service catalogue + WebSite
-  ═══════════════════════════════════════════ -->
+ 
+  <!-- DATOS ESTRUCTURADOS -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -75,80 +57,68 @@
         "@type": "Organization",
         "@id": "https://lazia.com.mx/#organization",
         "name": "LAZIA",
-        "alternateName": "LAZIA Creative Software Agency",
         "url": "https://lazia.com.mx/",
-        "logo": {
-          "@type": "ImageObject",
-          "@id": "https://lazia.com.mx/#logo",
-          "url": "https://lazia.com.mx/favicon.svg",
-          "contentUrl": "https://lazia.com.mx/favicon.svg"
-        },
-        "image": { "@id": "https://lazia.com.mx/#logo" },
-        "description": "Award-winning creative software agency specialising in SaaS ERP development, conversion-driven e-commerce web design, and intelligent AI automation chatbots.",
+        "logo": "https://lazia.com.mx/favicon.svg",
+        "description": "Agencia mexicana de software. Sistemas a la medida, tiendas en línea y chatbots de WhatsApp.",
         "email": "hello@lazia.com.mx",
         "telephone": "+525540176798",
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+525540176798",
-          "contactType": "sales",
+          "contactType": "ventas",
           "availableLanguage": ["Spanish", "English"]
         },
         "foundingDate": "2024",
-        "knowsAbout": [
-          "SaaS Development", "ERP Software", "E-Commerce",
-          "AI Automation", "Chatbots", "Full-Stack Development",
-          "Workflow Automation", "Digital Transformation"
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Pachuca de Soto",
+          "addressRegion": "Hidalgo",
+          "addressCountry": "MX"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Pachuca de Soto" },
+          { "@type": "City", "name": "Ciudad de México" },
+          { "@type": "State", "name": "Estado de México" },
+          { "@type": "State", "name": "Hidalgo" },
+          { "@type": "Country", "name": "México" }
         ],
-        "sameAs": []
-      },
-      {
-        "@type": "ProfessionalService",
-        "@id": "https://lazia.com.mx/#professionalService",
-        "name": "LAZIA Creative Software Agency",
-        "provider": { "@id": "https://lazia.com.mx/#organization" },
-        "serviceType": "Software Development",
-        "areaServed": "Worldwide",
-        "availableChannel": {
-          "@type": "ServiceChannel",
-          "serviceUrl": "https://lazia.com.mx/"
-        }
+        "knowsAbout": [
+          "Desarrollo de software", "ERP a la medida", "Tiendas en línea",
+          "Chatbots WhatsApp", "Automatización de procesos", "Diseño web"
+        ]
       },
       {
         "@type": "ItemList",
-        "@id": "https://lazia.com.mx/#services",
-        "name": "Software Services",
-        "itemListOrder": "https://schema.org/ItemListOrderAscending",
+        "@id": "https://lazia.com.mx/#servicios",
+        "name": "Servicios",
         "itemListElement": [
           {
-            "@type": "ListItem",
-            "position": 1,
+            "@type": "ListItem", "position": 1,
             "item": {
               "@type": "Service",
-              "name": "SaaS ERP & Software Development",
-              "description": "Full-stack SaaS platforms and custom ERP solutions architectured to scale and redefine entire industries.",
-              "url": "https://lazia.com.mx/services/saas-erp-software/",
+              "name": "Sistemas y software a la medida",
+              "description": "Un solo sistema para llevar ventas, inventario, facturas y clientes.",
+              "url": "https://lazia.com.mx/servicios/sistemas-a-la-medida/",
               "provider": { "@id": "https://lazia.com.mx/#organization" }
             }
           },
           {
-            "@type": "ListItem",
-            "position": 2,
+            "@type": "ListItem", "position": 2,
             "item": {
               "@type": "Service",
-              "name": "E-Commerce Web Design",
-              "description": "Visually immersive storefronts engineered to convert, fusing brand storytelling with precision UX.",
-              "url": "https://lazia.com.mx/services/ecommerce-web-design/",
+              "name": "Tiendas en línea y páginas web",
+              "description": "Páginas y tiendas listas para vender, con pago con tarjeta, OXXO o transferencia.",
+              "url": "https://lazia.com.mx/servicios/tiendas-en-linea/",
               "provider": { "@id": "https://lazia.com.mx/#organization" }
             }
           },
           {
-            "@type": "ListItem",
-            "position": 3,
+            "@type": "ListItem", "position": 3,
             "item": {
               "@type": "Service",
-              "name": "Automations & AI Chatbots",
-              "description": "Intelligent workflows and conversational AI that operate around the clock, turning repetitive operations into elegant automated pipelines.",
-              "url": "https://lazia.com.mx/services/automations-chatbots/",
+              "name": "Chatbots y automatizaciones",
+              "description": "Atención por WhatsApp las 24 horas y tareas repetitivas resueltas solas.",
+              "url": "https://lazia.com.mx/servicios/chatbots-automatizaciones/",
               "provider": { "@id": "https://lazia.com.mx/#organization" }
             }
           }
@@ -160,21 +130,7 @@
         "url": "https://lazia.com.mx/",
         "name": "LAZIA",
         "publisher": { "@id": "https://lazia.com.mx/#organization" },
-        "inLanguage": ["en", "es"]
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://lazia.com.mx/#webpage",
-        "url": "https://lazia.com.mx/",
-        "name": "LAZIA — Unleashing Digital Craftsmanship",
-        "isPartOf": { "@id": "https://lazia.com.mx/#website" },
-        "about": { "@id": "https://lazia.com.mx/#organization" },
-        "description": "Award-winning creative software agency. SaaS ERP, e-commerce web design, and AI automation that redefines industries.",
-        "inLanguage": "en",
-        "potentialAction": {
-          "@type": "ReadAction",
-          "target": "https://lazia.com.mx/"
-        }
+        "inLanguage": "es"
       }
     ]
   }
@@ -1472,3 +1428,20 @@ document.addEventListener('mousemove', e => {
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
