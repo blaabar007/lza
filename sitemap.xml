@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  LAZIA — sitemap.xml
-  Sitio completamente en español, alojado en GitHub Pages.
-  Actualiza <lastmod> cada vez que hagas cambios importantes.
-  Súbelo a: https://search.google.com/search-console → Sitemaps
-             https://www.bing.com/webmasters/ → Sitemaps
--->
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- INICIO -->
